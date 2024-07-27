@@ -1,12 +1,10 @@
 import React from "react";
 import {
     createBrowserRouter,
-    RouterProvider,
-    Route,
-    Link
+
 } from "react-router-dom";
-import Layout from "./Components/Layout";
-import MangaSearchPage from "./Pages/MangaSearchPage";
+import Layout from "./Components/layout/index";
+// import MangaSearchPage from "./Pages/MangaSearchPage";
 
 export const router = createBrowserRouter(
     [
@@ -16,7 +14,7 @@ export const router = createBrowserRouter(
             children: [
                 {
                     path: "search",
-                    element: <MangaSearchPage />
+                    element: <div>Search Page</div>
                 }
             ]
         }

@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  --primary-background-rgb: 25, 26, 28;
+  --secondary-background-rgb: 44, 44, 44;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    background-color: rgb(25, 26, 28);
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+    overflow-y: auto;
+    background-color: rgb(25, 26, 28);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

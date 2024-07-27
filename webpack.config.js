@@ -8,32 +8,32 @@ module.exports = {
         filename: 'bundle.js',
     },
     resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+        extensions: ['.tsx', '.ts', '.js'],
     },
     module: {
-    rules: [
-        {
-        test: /\.(ts|tsx)$/,
-        exclude: /node_modules/,
-        use: 'ts-loader',
-        },
-        {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
-        },
-        {
-            test: /\.(png|jpe?g|gif|svg)$/i,
-            use: [
-              {
-                loader: 'url-loader',
-                options: {
-                  limit: 8192, // Converts images < 8kb to base64 strings
-                  name: 'images/[name].[hash].[ext]'
-                }
-              }
-            ]
-          },
-    ],
+        rules: [
+            {
+                test: /\.(ts|tsx)$/,
+                exclude: /node_modules/,
+                use: 'ts-loader',
+            },
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader', 'postcss-loader'],
+            },
+            {
+                test: /\.(png|jpe?g|gif|svg)$/i,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 8192,
+                            name: 'images/[name].[hash].[ext]'
+                        }
+                    }
+                ]
+            },
+        ],
     },
     devServer: {
         static: {
@@ -45,8 +45,8 @@ module.exports = {
         historyApiFallback: true
     },
     plugins: [
-    new HtmlWebpackPlugin({
-        template: './src/index.html',
-    }),
+        new HtmlWebpackPlugin({
+            template: './src/index.html',
+        }),
     ],
 };
