@@ -1,16 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer base {
+  @font-face {
+    font-family: Anime;
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
 
+  }
+}
 
 :root {
   --primary-background-rgb: 25, 26, 28;
   --secondary-background-rgb: 44, 44, 44;
+  --accent-background-rgb: 44, 44, 44;
+  max-width: 1000px;
+  width: 1000px;
+  margin: auto;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    background-color: rgb(25, 26, 28);
   }
 }
 
@@ -22,8 +36,8 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-    overflow-y: auto;
-    background-color: rgb(25, 26, 28);
+  overflow-y: auto;
+  background-color: rgb(25, 26, 28);
 }
 
 @layer utilities {
