@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../../globals.css';
 const PageHeader = (props: {
   onMenuToggled: (menuOpen: boolean) => void;
@@ -15,15 +16,46 @@ const PageHeader = (props: {
             const { isOpen } = props;
             props.onMenuToggled(!isOpen);
           }}
-          className={`text-white font-bold justify-end mr-auto p-5 text-3xl ${
+          className={`text-white font-bold justify-end p-5 text-3xl ${
             props.isOpen ? 'opacity-0' : 'opacity-100'
           }`}
         >
           ☰
         </button>
       </div>
+      <SearchBar />
     </div>
   );
 };
 
 export default PageHeader;
+
+// helper components
+
+const SearchBar = () => {
+  const Navigator = useNavigate();
+  const [searchQuery, setSearchQuery] = useState('');
+  const searchManga = (query: string) => {
+    Navigator(`/search?q=${query}`);
+  };
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      console.log('searching for manga', searchQuery);
+      searchManga(searchQuery);
+    }
+  };
+  return (
+    <div className="search-bar-container ml-auto flex flex-col justify-center">
+      <div className="search-box bg-accent p-2 rounded">
+        <input
+          type="text"
+          placeholder="Search for manga"
+          onChange={(e) => setSearchQuery(e.target.value)}
+          onKeyDown={handleKeyDown}
+          className="search-input bg-transparent decoration-none focus:outline-none text-white"
+        />
+        <button className="search-button">Search</button>
+      </div>
+    </div>
+  );
+};

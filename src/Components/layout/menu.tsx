@@ -78,7 +78,7 @@ const MenuItem = (props: { text: string; link: string }) => {
     <div
       className={`
         menu-item  rounded-lg
-        pl-2 cursor-pointer text-lg leading-7 font-main m-2
+        pl-6 cursor-pointer text-lg leading-7 font-main m-2
         flex flex-col justify-center
         ${
           locater.pathname === props.link

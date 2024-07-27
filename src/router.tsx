@@ -1,16 +1,13 @@
 import React from 'react';
 import { createBrowserRouter, Outlet } from 'react-router-dom';
 import Layout from './Components/layout';
+import { SearchPage } from './pages';
 
 export const router = createBrowserRouter([
   {
     path: '/',
     element: <Layout />,
     children: [
-      {
-        path: 'search',
-        element: <div>Search Page</div>,
-      },
       {
         path: 'titles',
         element: <div>Advanced Search</div>,
@@ -22,6 +19,10 @@ export const router = createBrowserRouter([
       {
         path: 'titles/latest',
         element: <div>Latest Titles</div>,
+      },
+      {
+        path: 'search',
+        element: <SearchPage />,
       },
     ],
   },
