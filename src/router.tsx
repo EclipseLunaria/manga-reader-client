@@ -11,6 +11,18 @@ export const router = createBrowserRouter([
         path: 'search',
         element: <div>Search Page</div>,
       },
+      {
+        path: 'titles',
+        element: <div>Titles Page</div>,
+      },
+      {
+        path: 'titles/recent',
+        element: <div>Recent Titles</div>,
+      },
+      {
+        path: 'titles/latest',
+        element: <div>Latest Titles</div>,
+      },
     ],
   },
 ]);

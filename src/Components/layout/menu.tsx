@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 type MenuProps = {
   isOpen: boolean;
   closeMenu: () => void;
@@ -15,7 +15,7 @@ const Menu = forwardRef<HTMLDivElement, MenuProps>((props, ref) => {
     <div
       ref={ref}
       onClick={handleClick}
-      className={`menu transition-transform w-64 h-screen origin-top-left bg-secondary text-white ${
+      className={`menu transition-transform w-64 h-screen origin-top-left mr-4 bg-secondary text-white ${
         props.isOpen ? 'scale-x-100 relative' : 'scale-x-0 absolute'
       } `}
     >
@@ -50,8 +50,17 @@ const MenuHeader = (props: { closeMenu: () => void }) => {
 };
 
 const MenuItem = (props: { text: string; link: string }) => {
+  const locater = useLocation();
+
   return (
-    <div className="menu-item h-8 hover:bg-accentBackground pl-2 cursor-pointer rounded-lg flex flex-col justify-center">
+    <div
+      className={`
+        menu-item hover:bg-accentBackground rounded-lg
+        pl-2 h-8 cursor-pointer 
+        flex flex-col justify-center
+        ${locater.pathname === props.link ? 'bg-orange-500 font-bold' : ''}
+        `}
+    >
       <Link to={props.link}>{props.text}</Link>
     </div>
   );

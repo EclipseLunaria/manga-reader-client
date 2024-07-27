@@ -2,19 +2,21 @@ import React, { useEffect, useRef } from 'react';
 import PageHeader from './header';
 import Menu from './menu';
 import { Outlet } from 'react-router-dom';
+
 const Layout: React.FC = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+
   const handleMenuToggle = (isOpen: boolean) => {
     setIsOpen(isOpen);
   };
   const closeMenu = () => setIsOpen(false);
-
   const handleClickOutside = (event: MouseEvent) => {
     if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
       closeMenu();
     }
   };
+
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => {
@@ -23,10 +25,10 @@ const Layout: React.FC = () => {
   });
 
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex flex-row justify-start ">
       <Menu ref={menuRef} closeMenu={closeMenu} isOpen={isOpen} />
 
-      <div className="flex flex-row">
+      <div className="flex flex-col w-max-1440px">
         <PageHeader isOpen={isOpen} onMenuToggled={handleMenuToggle} />
 
         <Outlet />

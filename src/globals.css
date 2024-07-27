@@ -7,8 +7,6 @@
   --secondary-background-rgb: 44, 44, 44;
   --accent-background-rgb: 44, 44, 44;
   --accent-background-10-rgb: 66, 66, 66;
-  max-width: 1000px;
-  width: 1000px;
   margin: auto;
   justify-content: center;
   display: flex;
