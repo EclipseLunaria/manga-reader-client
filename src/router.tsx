@@ -1,5 +1,5 @@
 import React from 'react';
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, Outlet } from 'react-router-dom';
 import Layout from './Components/layout';
 
 export const router = createBrowserRouter([
@@ -13,7 +13,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'titles',
-        element: <div>Titles Page</div>,
+        element: <div>Advanced Search</div>,
       },
       {
         path: 'titles/recent',

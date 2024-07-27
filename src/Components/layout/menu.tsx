@@ -49,23 +49,6 @@ const MenuHeader = (props: { closeMenu: () => void }) => {
   );
 };
 
-const MenuItem = (props: { text: string; link: string }) => {
-  const locater = useLocation();
-
-  return (
-    <div
-      className={`
-        menu-item hover:bg-accentBackground rounded-lg
-        pl-2 h-8 cursor-pointer 
-        flex flex-col justify-center
-        ${locater.pathname === props.link ? 'bg-orange-500 font-bold' : ''}
-        `}
-    >
-      <Link to={props.link}>{props.text}</Link>
-    </div>
-  );
-};
-
 interface MenuSectionProps {
   title: string;
   icon: string;
@@ -74,8 +57,8 @@ interface MenuSectionProps {
 
 const MenuSection = (props: MenuSectionProps) => {
   return (
-    <div className="menu-section p-4">
-      <div className="menu-header flex flex-row">
+    <div className="menu-section p-4 ">
+      <div className="menu-header flex flex-row text-xl">
         <div className="menu-icon">{props.icon}</div>
         <div className="menu-title font-bold ml-2">{props.title}</div>
       </div>
@@ -84,6 +67,27 @@ const MenuSection = (props: MenuSectionProps) => {
           <MenuItem text={item.text} link={item.link} />
         ))}
       </div>
+    </div>
+  );
+};
+
+const MenuItem = (props: { text: string; link: string }) => {
+  const locater = useLocation();
+
+  return (
+    <div
+      className={`
+        menu-item  rounded-lg
+        pl-2 cursor-pointer text-lg leading-7 font-main m-2
+        flex flex-col justify-center
+        ${
+          locater.pathname === props.link
+            ? 'bg-orange-500 hover:bg-orange-600 font-bold'
+            : 'hover:bg-accentBackground'
+        }
+        `}
+    >
+      <Link to={props.link}>{props.text}</Link>
     </div>
   );
 };

@@ -5,11 +5,11 @@ const PageHeader = (props: {
   isOpen: boolean;
 }) => {
   return (
-    <div className="navbarmain flex flex-row h-32">
+    <div className="navbarmain flex flex-row w-1440px">
       <div className="font-anime flex flex-col justify-center">
         MANGA DOKUSHA
       </div>
-      <div className={`dropdown-menu-icon flex flex-row `}>
+      <div className={`dropdown-menu-icon`}>
         <button
           onClick={() => {
             const { isOpen } = props;
