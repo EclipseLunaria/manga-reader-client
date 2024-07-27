@@ -15,6 +15,7 @@ module.exports = {
         secondary: 'rgb(var(--secondary-background-rgb))',
         primary: 'rgb(var(--primary-background-rgb))',
         accent: 'rgb(var(--accent-background-rgb))',
+        accentBackground: 'rgb(var(--accent-background-10-rgb))',
       },
     },
   },

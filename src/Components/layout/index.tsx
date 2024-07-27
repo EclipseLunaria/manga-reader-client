@@ -21,11 +21,12 @@ const Layout: React.FC = () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   });
+
   return (
-    <div className="flex flex-row relative justify-start w-1000px">
+    <div className="flex flex-col w-full">
       <Menu ref={menuRef} closeMenu={closeMenu} isOpen={isOpen} />
 
-      <div className="flex flex-col relative justify-start w-1000px p-5">
+      <div className="flex flex-row">
         <PageHeader isOpen={isOpen} onMenuToggled={handleMenuToggle} />
 
         <Outlet />
