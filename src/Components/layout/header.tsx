@@ -6,7 +6,7 @@ const PageHeader = (props: {
   isOpen: boolean;
 }) => {
   return (
-    <div className="navbarmain flex flex-row w-1440px">
+    <div className="navbarmain flex flex-row w-1200px">
       <div className="font-anime flex flex-col justify-center">
         MANGA DOKUSHA
       </div>
