@@ -43,9 +43,7 @@ module.exports = {
     compress: true,
     port: 6969,
     hot: true,
-    historyApiFallback: {
-      rewrites: [{ from: /./, to: '/index.html' }],
-    },
+    historyApiFallback: true, // Enable single page application routing
   },
   plugins: [
     new HtmlWebpackPlugin({
