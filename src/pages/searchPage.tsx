@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSeriesSearchApi } from '../utils/useSearchApi';
+import MangaCard from '../Components/MangaCard';
 const SearchPage = () => {
   const { search } = useLocation();
   const query = new URLSearchParams(search).get('q') || '';
@@ -9,11 +10,12 @@ const SearchPage = () => {
     <div>
       <h1>Search Page</h1>
       <p>Search query: {query}</p>
-      <div>
+      <MangaCard />
+      <>
         DATA: {JSON.stringify(data)}
         {/* {loading && <p>Loading...</p>} */}
         {/* {error && <p>Error: {error}</p>} */}
-      </div>
+      </>
     </div>
   );
 };
