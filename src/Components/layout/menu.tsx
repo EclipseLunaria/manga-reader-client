@@ -21,8 +21,9 @@ const Menu = forwardRef<HTMLDivElement, MenuProps>((props, ref) => {
     >
       <MenuHeader closeMenu={props.closeMenu} />
       <div className="menu-body">
-        {MenuConfiguration.map((section) => (
+        {MenuConfiguration.map((section, index) => (
           <MenuSection
+            key={index}
             title={section.title}
             icon={section.icon}
             items={section.items}
@@ -63,8 +64,8 @@ const MenuSection = (props: MenuSectionProps) => {
         <div className="menu-title font-bold ml-2">{props.title}</div>
       </div>
       <div className="menu-items">
-        {props.items.map((item) => (
-          <MenuItem text={item.text} link={item.link} />
+        {props.items.map((item, index) => (
+          <MenuItem text={item.text} link={item.link} key={index} />
         ))}
       </div>
     </div>
