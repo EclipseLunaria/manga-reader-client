@@ -38,6 +38,6 @@ export const getSeriesInfoHook = (mangaId: string) => {
       }
     };
     fetchSeriesInfo();
-  });
+  }, [mangaId]);
   return { seriesInfo, loading };
 };
