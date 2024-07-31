@@ -3,6 +3,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import Layout from './Components/Layout';
 import { SearchPage } from './pages';
 import TitlePage from './pages/TitlePage';
+import ChapterViewer from './Components/ChapterViewer';
 
 export const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ export const router = createBrowserRouter([
       {
         path: 'title/:titleId',
         element: <TitlePage />,
+      },
+      {
+        path: 'title/:titleId/chapter/:chapterId',
+        element: <ChapterViewer />,
       },
     ],
   },
