@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { MenuProps, MenuSectionProps } from './types';
+import { MenuProps } from './types';
 import MenuConfiguration from './config';
+import MenuSection from './MenuSection';
 
 const Menu = forwardRef<HTMLDivElement, MenuProps>((props, ref) => {
   const handleClick = (e: React.MouseEvent) => {
@@ -44,43 +44,6 @@ const MenuHeader = (props: { closeMenu: () => void }) => {
       >
         ✕
       </button>
-    </div>
-  );
-};
-
-const MenuSection = (props: MenuSectionProps) => {
-  return (
-    <div className="menu-section p-4 ">
-      <div className="menu-header flex flex-row text-xl">
-        <div className="menu-icon">{props.icon}</div>
-        <div className="menu-title font-bold ml-2">{props.title}</div>
-      </div>
-      <div className="menu-items">
-        {props.items.map((item, index) => (
-          <MenuItem text={item.text} link={item.link} key={index} />
-        ))}
-      </div>
-    </div>
-  );
-};
-
-const MenuItem = (props: { text: string; link: string }) => {
-  const locater = useLocation();
-
-  return (
-    <div
-      className={`
-        menu-item  rounded-lg
-        pl-6 cursor-pointer text-lg leading-7 font-main m-2
-        flex flex-col justify-center
-        ${
-          locater.pathname === props.link
-            ? 'bg-orange-500 hover:bg-orange-600 font-bold'
-            : 'hover:bg-accentBackground'
-        }
-        `}
-    >
-      <Link to={props.link}>{props.text}</Link>
     </div>
   );
 };
