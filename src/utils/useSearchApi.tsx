@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios, { AxiosError, AxiosResponse } from 'axios';
-
+import { MangaCardProps } from '../Components/MangaCard/MangaCard';
 interface UseApiResponse<T> {
   data: T | null;
   loading: boolean;
