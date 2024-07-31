@@ -1,9 +1,6 @@
 import React, { forwardRef } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-type MenuProps = {
-  isOpen: boolean;
-  closeMenu: () => void;
-};
+import { Link, useLocation } from 'react-router-dom';
+import { MenuProps, MenuSectionProps } from './types';
 
 const Menu = forwardRef<HTMLDivElement, MenuProps>((props, ref) => {
   const handleClick = (e: React.MouseEvent) => {
@@ -49,12 +46,6 @@ const MenuHeader = (props: { closeMenu: () => void }) => {
     </div>
   );
 };
-
-interface MenuSectionProps {
-  title: string;
-  icon: string;
-  items: { text: string; link: string }[];
-}
 
 const MenuSection = (props: MenuSectionProps) => {
   return (
