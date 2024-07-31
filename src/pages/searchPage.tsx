@@ -15,11 +15,6 @@ const SearchPage = () => {
       {!loading &&
         data &&
         data.map((manga, index) => <MangaCard {...manga} key={index} />)}
-      <>
-        DATA: {JSON.stringify(data)}
-        {/* {loading && <p>Loading...</p>} */}
-        {/* {error && <p>Error: {error}</p>} */}
-      </>
     </div>
   );
 };

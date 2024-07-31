@@ -4,7 +4,7 @@ interface Rating {
   totalVotes: string;
 }
 
-interface Chapter {
+export interface Chapter {
   title: string;
   link: string;
 }

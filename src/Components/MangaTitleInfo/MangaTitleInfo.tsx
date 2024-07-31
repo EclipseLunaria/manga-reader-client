@@ -5,6 +5,7 @@ import MangaHeaderImage from './MangaHeaderImage';
 import MangaHeaderBox from './MangaHeaderBox';
 import MangaDescriptionBox from './MangaDescriptionBox';
 import MetaSectionBox from './MetaSectionBox';
+import ChapterSection from './ChapterSection';
 const MangaTitleInfo = (props: SeriesInfo) => {
   return (
     <div className="manga-title-info relative text-white flex flex-col">
@@ -25,7 +26,10 @@ const MangaTitleInfo = (props: SeriesInfo) => {
             status={props.status}
           />
         </div>
-        <div className="series-chapters w-full">CHAPTERS</div>
+        <div className="series-chapters w-full">
+          <ChapterSection chapters={props.chapters} />
+        </div>
+        {/* {JSON.stringify(props, null, 2)} */}
       </div>
     </div>
   );
