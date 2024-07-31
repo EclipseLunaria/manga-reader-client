@@ -1,5 +1,4 @@
 import React from 'react';
-import { getSeriesInfoHook, SeriesInfo } from './mangaSeriesInfoHook';
 import { SeriesInfoBox } from './seriesInfo';
 export type MangaCardProps = {
   title: string;
@@ -9,7 +8,7 @@ export type MangaCardProps = {
   rating: string;
   seriesId: string;
 };
-
+// TODO: Fix styling for long titles to not stretch the card image
 const MangaCard = (props: MangaCardProps) => {
   return (
     <a
