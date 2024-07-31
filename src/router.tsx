@@ -2,7 +2,7 @@ import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import Layout from './Components/Layout';
 import { SearchPage } from './pages';
-import TitlePage from './pages/titlePage';
+import TitlePage from './pages/TitlePage';
 
 export const router = createBrowserRouter([
   {

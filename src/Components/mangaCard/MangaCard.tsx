@@ -1,5 +1,5 @@
 import React from 'react';
-import { SeriesInfoBox } from './seriesInfo';
+import { SeriesInfoBox } from './SeriesInfo';
 export type MangaCardProps = {
   title: string;
   link: string;

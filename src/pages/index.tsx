@@ -1,3 +1,3 @@
-import SearchPage from './searchPage';
+import SearchPage from './SearchPage';
 
 export { SearchPage };
