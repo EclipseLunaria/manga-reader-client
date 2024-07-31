@@ -1,7 +1,8 @@
 import React from 'react';
-import { createBrowserRouter, Outlet } from 'react-router-dom';
+import { createBrowserRouter } from 'react-router-dom';
 import Layout from './Components/Layout';
 import { SearchPage } from './pages';
+import TitlePage from './pages/titlePage';
 
 export const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ export const router = createBrowserRouter([
       {
         path: 'search',
         element: <SearchPage />,
+      },
+      {
+        path: 'title/:titleId',
+        element: <TitlePage />,
       },
     ],
   },
