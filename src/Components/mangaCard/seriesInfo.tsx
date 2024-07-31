@@ -1,5 +1,5 @@
 import React from 'react';
-import { getSeriesInfoHook } from '../../utils/mangaSeriesInfoHook';
+import { getSeriesInfoHook } from '../../utils/getSeriesInfoHook';
 
 export type MangaCardProps = {
   id: string;
