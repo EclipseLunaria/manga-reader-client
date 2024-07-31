@@ -6,7 +6,12 @@ import MangaHeaderBox from './MangaHeaderBox';
 import MangaDescriptionBox from './MangaDescriptionBox';
 import MetaSectionBox from './MetaSectionBox';
 import ChapterSection from './ChapterSection';
+import { useParams } from 'react-router-dom';
 const MangaTitleInfo = (props: SeriesInfo) => {
+  const { titleId } = useParams();
+  if (!titleId) {
+    return <div>Invalid Title</div>;
+  }
   return (
     <div className="manga-title-info relative text-white flex flex-col">
       <TitleCoverBackground cover={props.image} title={props.title} />
@@ -27,7 +32,7 @@ const MangaTitleInfo = (props: SeriesInfo) => {
           />
         </div>
         <div className="series-chapters w-full">
-          <ChapterSection chapters={props.chapters} />
+          <ChapterSection chapters={props.chapters} mangaId={titleId} />
         </div>
         {/* {JSON.stringify(props, null, 2)} */}
       </div>
