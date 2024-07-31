@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { getSeriesInfoHook } from '../utils/getSeriesInfoHook';
+import { MangaTitleInfo } from '../Components/MangaTitleInfo';
 const TitlePage = () => {
   const { titleId } = useParams();
   if (!titleId) {
@@ -10,13 +11,7 @@ const TitlePage = () => {
   return (
     <div className="manga-title-page">
       {loading && <div>Loading...</div>}
-      {seriesInfo && (
-        <div>
-          <h1>{seriesInfo.title}</h1>
-          <img src={seriesInfo.image} alt={seriesInfo.title} />
-          <p>{seriesInfo.description}</p>
-        </div>
-      )}
+      {seriesInfo && <MangaTitleInfo {...seriesInfo} />}
     </div>
   );
 };
