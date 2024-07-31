@@ -12,7 +12,7 @@ export type MangaCardProps = {
 const MangaCard = (props: MangaCardProps) => {
   return (
     <a
-      href={props.link}
+      href={`/title/${props.seriesId}`}
       className="manga-card w-full bg-secondary h-80 rounded-md p-1 flex flex-row m-2"
     >
       <div className="image-container h-full p-2 relative">
