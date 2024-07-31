@@ -2,6 +2,7 @@ import React, { forwardRef } from 'react';
 import { MenuProps } from './types';
 import MenuConfiguration from './config';
 import MenuSection from './MenuSection';
+import MenuHeader from './MenuHeader';
 
 const Menu = forwardRef<HTMLDivElement, MenuProps>((props, ref) => {
   const handleClick = (e: React.MouseEvent) => {
@@ -33,17 +34,3 @@ const Menu = forwardRef<HTMLDivElement, MenuProps>((props, ref) => {
 });
 
 export default Menu;
-
-// Subcomponents
-const MenuHeader = (props: { closeMenu: () => void }) => {
-  return (
-    <div className="menu-header h-16 flex flex-row mx-2">
-      <button
-        onClick={props.closeMenu}
-        className="text-white font-bold justify-end ml-auto text-3xl"
-      >
-        ✕
-      </button>
-    </div>
-  );
-};
