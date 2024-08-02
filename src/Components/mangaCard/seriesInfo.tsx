@@ -1,13 +1,6 @@
 import React from 'react';
 import { getSeriesInfoHook } from '../../utils/hooks';
 
-export type MangaCardProps = {
-  id: string;
-  title: string;
-  link: string;
-  image: string;
-};
-
 export const SeriesInfoBox = (props: { mangaId: string }) => {
   const { seriesInfo, loading } = getSeriesInfoHook(props.mangaId);
   if (loading) {
