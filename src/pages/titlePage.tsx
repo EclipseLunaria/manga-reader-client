@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
-import { getSeriesInfoHook } from '../utils/getSeriesInfoHook';
+import { getSeriesInfoHook } from '../utils/hooks';
 import { MangaTitleInfo } from '../Components/MangaTitleInfo';
-import { SeriesInfo } from '../utils/getSeriesInfoHook';
 const TitlePage = () => {
   const { titleId } = useParams();
   if (!titleId) {

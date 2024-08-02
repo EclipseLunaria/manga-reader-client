@@ -1,5 +1,5 @@
 import React from 'react';
-import { SeriesInfo } from '../../utils/getSeriesInfoHook';
+import { SeriesInfo } from '../../utils/types';
 import TitleCoverBackground from './TitleCoverBackground';
 import MangaHeaderImage from './MangaHeaderImage';
 import MangaHeaderBox from './MangaHeaderBox';

@@ -1,7 +1,8 @@
 import React from 'react';
-import { Chapter } from '../../utils/getSeriesInfoHook';
+import { Chapter } from '../../utils/types';
 import { Link } from 'react-router-dom';
-import fetchFieldHook from '../../utils/fetchSeriesFieldHook';
+import { fetchFieldHook } from '../../utils/hooks';
+
 const ChapterSection = (props: { chapters: Chapter[]; mangaId: string }) => {
   const { field: chapterData } = fetchFieldHook<Chapter[]>(
     props.mangaId,

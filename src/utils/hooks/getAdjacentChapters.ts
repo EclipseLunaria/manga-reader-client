@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Chapter } from './getSeriesInfoHook';
+import { Chapter } from '../types';
 
 const getAdjacentChapters = async (
   chapters: Chapter[] | null,

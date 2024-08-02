@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import fetchFieldHook from '../../../utils/fetchSeriesFieldHook';
-import { Chapter } from '../../../utils/getSeriesInfoHook';
+import { fetchFieldHook, getAdjacentChapters } from '../../../utils/hooks';
+import { Chapter } from '../../../utils/types';
 import { useNavigate } from 'react-router-dom';
 import { ChapterNavButton } from './ViewHeader';
-import getAdjacentChapters from '../../../utils/getAdjacentChapters';
 
 const ChapterSelector = (props: {
   mangaId: string;

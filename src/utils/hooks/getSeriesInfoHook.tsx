@@ -1,27 +1,7 @@
-import React, { useEffect, useState } from 'react';
-interface Rating {
-  ratingAvg: string;
-  totalVotes: string;
-}
+import { useEffect, useState } from 'react';
+import { SeriesInfo } from '../types';
 
-export interface Chapter {
-  id: string;
-  title: string;
-  link: string;
-}
-
-export interface SeriesInfo {
-  title: string;
-  author: string;
-  image: string;
-  rating: Rating;
-  description: string;
-  status: string;
-  genres: string[];
-  chapters: Chapter[];
-}
-export const getSeriesInfoHook = (mangaId: string) => {
-  // Implement your hook here
+const getSeriesInfoHook = (mangaId: string) => {
   const [seriesInfo, setSeriesInfo] = useState<SeriesInfo | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -42,3 +22,5 @@ export const getSeriesInfoHook = (mangaId: string) => {
   }, [mangaId]);
   return { seriesInfo, loading };
 };
+
+export default getSeriesInfoHook;

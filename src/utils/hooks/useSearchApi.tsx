@@ -6,9 +6,7 @@ interface UseApiResponse<T> {
   error: AxiosError | null;
 }
 
-export const useSeriesSearchApi = <T,>(
-  searchTerm: string,
-): UseApiResponse<T> => {
+const useSeriesSearchApi = <T,>(searchTerm: string): UseApiResponse<T> => {
   const [data, setData] = useState<T | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<AxiosError | null>(null);
@@ -31,3 +29,5 @@ export const useSeriesSearchApi = <T,>(
 
   return { data, loading, error };
 };
+
+export default useSeriesSearchApi;
