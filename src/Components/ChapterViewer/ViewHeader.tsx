@@ -1,6 +1,7 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import ChapterSelector from './Selector';
+import PageNav from './PageNav';
 
 const ViewerHeader = (props: {
   title: string;
@@ -8,12 +9,9 @@ const ViewerHeader = (props: {
   chapterId: string;
   pgTotal: number;
   pgCurrent: number;
+  onSetPage: (page: number) => void;
   onPageNav: (nav: 'next' | 'prev') => void;
 }) => {
-  const navigator = useNavigate();
-  const onSelect = (e: any) => {
-    navigator(`/title/${props.mangaId}/chapter/${e.target.value}`);
-  };
   return (
     <div className="viewer-header  text-white p-2 flex flex-col">
       <div className="chapter-title text-5xl m-3">
@@ -25,29 +23,17 @@ const ViewerHeader = (props: {
       >
         ⮈ {props.title}
       </Link>
-      <div className="chapter-header-info flex flex-row justify-between">
-        <ChapterNavButton text="Previous Chapter" onClick={() => {}} />
-        <ChapterNavButton text="Next Chapter" onClick={() => {}} />
-      </div>
-      <ChapterSelector mangaId={props.mangaId} />
-      <div className="chapter-header-info flex flex-row justify-between">
-        <ChapterNavButton
-          disabled={props.pgCurrent === 1}
-          text="⇦ Prev"
-          onClick={() => props.onPageNav('prev')}
-        />
 
-        <ChapterNavButton
-          text={`Pg. ${props.pgCurrent}/${props.pgTotal}`}
-          onClick={() => {}}
-          disableHighlight
-        />
-        <ChapterNavButton
-          text="Next ⇨"
-          onClick={() => props.onPageNav('next')}
-          disabled={props.pgCurrent === props.pgTotal}
-        />
-      </div>
+      <ChapterSelector
+        mangaId={props.mangaId}
+        chapterId={props.chapterId}
+        onPageSet={props.onSetPage}
+      />
+      <PageNav
+        onPageNav={props.onPageNav}
+        pgCurrent={props.pgCurrent}
+        pgTotal={props.pgTotal}
+      />
     </div>
   );
 };

@@ -11,7 +11,9 @@ const ChapterViewer = () => {
   const { field: titleField } = fetchFieldHook<string>(titleId, 'title');
   const { chapter, loading } = fetchChapterHook(titleId, chapterId);
   const [page, setPage] = React.useState(0);
-
+  const onSetPage = (page: number) => {
+    setPage(page);
+  };
   const onPageNav = (nav: 'next' | 'prev') => {
     if (!chapter) {
       return;
@@ -34,6 +36,7 @@ const ChapterViewer = () => {
         pgCurrent={page + 1}
         mangaId={titleId}
         chapterId={chapterId}
+        onSetPage={onSetPage}
         onPageNav={onPageNav}
       />
       {loading && <div>Loading...</div>}
