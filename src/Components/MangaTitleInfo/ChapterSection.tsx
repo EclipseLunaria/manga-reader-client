@@ -1,16 +1,23 @@
 import React from 'react';
 import { Chapter } from '../../utils/getSeriesInfoHook';
 import { Link } from 'react-router-dom';
-
+import fetchFieldHook from '../../utils/fetchSeriesFieldHook';
 const ChapterSection = (props: { chapters: Chapter[]; mangaId: string }) => {
+  const { field: chapterData } = fetchFieldHook<Chapter[]>(
+    props.mangaId,
+    'chapters',
+  );
+  if (!chapterData) {
+    return null;
+  }
   return (
     <div className="chapter-section w-full ">
       <div className="chapter-list">
-        {props.chapters.map((chapter, index) => (
+        {chapterData.map((chapter, index) => (
           <ChapterCard
             key={index}
             chapter={chapter.title}
-            link={chapter.link}
+            id={chapter.id}
             mangaId={props.mangaId}
           />
         ))}
@@ -23,10 +30,10 @@ export default ChapterSection;
 
 const ChapterCard = (props: {
   chapter: string;
-  link: string;
+  id: string;
   mangaId: string;
 }) => {
-  const chapterId = props.link.split('/').pop()?.split('-').pop();
+  const chapterId = props.id;
   if (!props.chapter) {
     return null;
   }

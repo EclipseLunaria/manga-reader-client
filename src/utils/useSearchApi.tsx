@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import axios, { AxiosError, AxiosResponse } from 'axios';
-import { MangaCardProps } from '../Components/MangaCard/MangaCard';
 interface UseApiResponse<T> {
   data: T | null;
   loading: boolean;
@@ -16,7 +15,7 @@ export const useSeriesSearchApi = <T,>(
 
   useEffect(() => {
     const fetchData = async () => {
-      const ENDPOINT_URL = `http://localhost:6900/manga/search?term=${searchTerm}`;
+      const ENDPOINT_URL = `http://localhost:6900/manga/search?q=${searchTerm}`;
       console.log('fetching data from', ENDPOINT_URL);
       try {
         const response: AxiosResponse<T> = await axios.get<T>(ENDPOINT_URL);
