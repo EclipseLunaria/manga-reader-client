@@ -1,33 +1,28 @@
 import React, { useEffect, useState } from 'react';
-import fetchFieldHook from '../../utils/fetchSeriesFieldHook';
-import { Chapter } from '../../utils/getSeriesInfoHook';
+import fetchFieldHook from '../../../utils/fetchSeriesFieldHook';
+import { Chapter } from '../../../utils/getSeriesInfoHook';
 import { useNavigate } from 'react-router-dom';
 import { ChapterNavButton } from './ViewHeader';
-import getAdjacentChapters from '../../utils/getAdjacentChapters';
+import getAdjacentChapters from '../../../utils/getAdjacentChapters';
 
 const ChapterSelector = (props: {
   mangaId: string;
   chapterId: string;
   onPageSet: (page: number) => void;
 }) => {
-  const navigate = useNavigate();
+  const { field: chapterData } = fetchFieldHook<Chapter[]>(
+    props.mangaId,
+    'chapters',
+  );
   const [adjacentChapters, setAdjacentChapters] = useState<{
     nextChapter: Chapter | null;
     prevChapter: Chapter | null;
   }>({ nextChapter: null, prevChapter: null });
 
+  const navigate = useNavigate();
   const handleChange = (e: any) => {
     navigate(`/title/${props.mangaId}/chapter/${e.target.value}`);
   };
-  const { field: chapterData } = fetchFieldHook<Chapter[]>(
-    props.mangaId,
-    'chapters',
-  );
-  const options = chapterData?.map((chapter, index) => (
-    <option key={index} value={chapter.id}>
-      {chapter.title}
-    </option>
-  ));
 
   useEffect(() => {
     const fetchAdjacentChapters = async () => {
@@ -37,6 +32,12 @@ const ChapterSelector = (props: {
     fetchAdjacentChapters();
   }, [chapterData, props.chapterId]);
 
+  const options = chapterData?.map((chapter, index) => (
+    <option key={index} value={chapter.id}>
+      {chapter.title}
+    </option>
+  ));
+
   return (
     <div className="chapter-selector w-full bg-transparent p-2">
       <div className="chapter-header-info flex flex-row justify-between">
@@ -45,7 +46,6 @@ const ChapterSelector = (props: {
           onClick={() => {
             navigate(
               `/title/${props.mangaId}/chapter/${adjacentChapters.prevChapter?.id}`,
-              { replace: true },
             );
             props.onPageSet(0);
           }}

@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import fetchChapterHook from '../../utils/fetchChapterHook';
 import ViewerHeader from './ViewHeader';
 import fetchFieldHook from '../../utils/fetchSeriesFieldHook';
+import ClickPageNav from './ClickPageNav';
+
 const ChapterViewer = () => {
   const { titleId, chapterId } = useParams();
   if (!titleId || !chapterId) {
@@ -11,23 +13,27 @@ const ChapterViewer = () => {
   const { field: titleField } = fetchFieldHook<string>(titleId, 'title');
   const { chapter, loading } = fetchChapterHook(titleId, chapterId);
   const [page, setPage] = React.useState(0);
-  const onSetPage = (page: number) => {
-    setPage(page);
-  };
-  const onPageNav = (nav: 'next' | 'prev') => {
+
+  const onPageNav = (nav: number | 'next' | 'prev') => {
     if (!chapter) {
       return;
     }
     if (nav === 'next') {
-      if (page < chapter.length - 1) {
+      if (chapter && page < chapter.length - 1) {
         setPage(page + 1);
       }
-    } else {
+    }
+
+    if (nav === 'prev') {
       if (page > 0) {
         setPage(page - 1);
       }
     }
+    if (typeof nav === 'number') {
+      setPage(nav);
+    }
   };
+
   return (
     <div className="chapter-viewer overflow-x-hidden">
       <ViewerHeader
@@ -36,15 +42,15 @@ const ChapterViewer = () => {
         pgCurrent={page + 1}
         mangaId={titleId}
         chapterId={chapterId}
-        onSetPage={onSetPage}
-        onPageNav={onPageNav}
+        chapters={chapter}
+        onSetPage={onPageNav}
       />
       {loading && <div>Loading...</div>}
       {chapter && (
         <div className="chapter-images flex flex-col w-full">
           <div className="chapter-image-container flex flex-row justify-center m-2 w-full">
-            <ClickPageNav onPageNav={onPageNav} />
             <img className="w-80%" src={chapter[page]} alt={`Page ${page}`} />
+            <ClickPageNav onPageNav={onPageNav} />
           </div>
         </div>
       )}
@@ -53,18 +59,3 @@ const ChapterViewer = () => {
 };
 
 export default ChapterViewer;
-
-const ClickPageNav = (props: { onPageNav: (nav: 'next' | 'prev') => void }) => {
-  return (
-    <div className="click-page-nav-box z-10 absolute h-screen w-full flex justify-between ">
-      <div
-        className="click-page-nav-button w-full cursor-pointer"
-        onClick={() => props.onPageNav('prev')}
-      ></div>
-      <div
-        className="click-page-nav-button w-full cursor-pointer"
-        onClick={() => props.onPageNav('next')}
-      ></div>
-    </div>
-  );
-};

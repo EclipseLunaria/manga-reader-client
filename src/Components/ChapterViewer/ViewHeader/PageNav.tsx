@@ -1,6 +1,5 @@
 import React from 'react';
-import { ChapterNavButton } from './ViewHeader';
-
+import ViewNavButton from './ViewNavButtons';
 const PageNav = (props: {
   onPageNav: (nav: 'next' | 'prev') => void;
   pgCurrent: number;
@@ -8,18 +7,18 @@ const PageNav = (props: {
 }) => {
   return (
     <div className="chapter-header-info flex flex-row justify-between">
-      <ChapterNavButton
+      <ViewNavButton
         disabled={props.pgCurrent === 1}
         text="⇦ Prev"
         onClick={() => props.onPageNav('prev')}
       />
 
-      <ChapterNavButton
+      <ViewNavButton
         text={`Pg. ${props.pgCurrent}/${props.pgTotal}`}
         onClick={() => {}}
         disableHighlight
       />
-      <ChapterNavButton
+      <ViewNavButton
         text="Next ⇨"
         onClick={() => props.onPageNav('next')}
         disabled={props.pgCurrent === props.pgTotal}

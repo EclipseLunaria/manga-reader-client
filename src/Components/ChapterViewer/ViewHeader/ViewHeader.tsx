@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ChapterSelector from './Selector';
 import PageNav from './PageNav';
+
+import ChapterSelector from './Selector';
+import ClickPageNav from '../ClickPageNav';
 
 const ViewerHeader = (props: {
   title: string;
@@ -9,8 +11,8 @@ const ViewerHeader = (props: {
   chapterId: string;
   pgTotal: number;
   pgCurrent: number;
-  onSetPage: (page: number) => void;
-  onPageNav: (nav: 'next' | 'prev') => void;
+  chapters: string[] | null;
+  onSetPage: (page: number | 'next' | 'prev') => void;
 }) => {
   return (
     <div className="viewer-header  text-white p-2 flex flex-col">
@@ -30,7 +32,7 @@ const ViewerHeader = (props: {
         onPageSet={props.onSetPage}
       />
       <PageNav
-        onPageNav={props.onPageNav}
+        onPageNav={props.onSetPage}
         pgCurrent={props.pgCurrent}
         pgTotal={props.pgTotal}
       />
