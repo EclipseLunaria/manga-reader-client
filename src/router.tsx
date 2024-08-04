@@ -5,6 +5,7 @@ import { SearchPage } from './pages';
 import TitlePage from './pages/TitlePage';
 import ChapterViewer from './Components/ChapterViewer';
 import ConstructionPage from './pages/constructionPage';
+import PageNotFound from './pages/PageNotFound';
 
 export const router = createBrowserRouter([
   {
@@ -13,14 +14,18 @@ export const router = createBrowserRouter([
     children: [
       {
         path: 'titles',
-        element: <div>Advanced Search</div>,
+        element: <ConstructionPage />,
       },
       {
         path: 'titles/recent',
-        element: <div>Recent Titles</div>,
+        element: <ConstructionPage />,
       },
       {
         path: 'titles/latest',
+        element: <ConstructionPage />,
+      },
+      {
+        path: 'title/random',
         element: <ConstructionPage />,
       },
       {
@@ -35,6 +40,35 @@ export const router = createBrowserRouter([
         path: 'title/:titleId/chapter/:chapterId',
         element: <ChapterViewer />,
       },
+      // Library Pages
+      {
+        path: 'library',
+        element: <ConstructionPage />,
+      },
+      {
+        path: 'library/shelf',
+        element: <ConstructionPage />,
+      },
+      {
+        path: 'library/collections',
+        element: <ConstructionPage />,
+      },
+      {
+        path: 'library/collections/:collectionId',
+        element: <ConstructionPage />,
+      },
+      {
+        path: 'library/feed',
+        element: <ConstructionPage />,
+      },
+      {
+        path: 'library/history',
+        element: <ConstructionPage />,
+      },
     ],
+  },
+  {
+    path: '*',
+    element: <PageNotFound />,
   },
 ]);
