@@ -26,6 +26,20 @@
   }
 }
 
+@keyframes blurAnimation {
+  0%,
+  100% {
+    filter: blur(0px);
+  }
+  50% {
+    filter: blur(15px); /* Adjust the blur intensity here */
+  }
+}
+
+.animated-blur {
+  @apply backdrop-blur-3xl filter rounded-3xl shadow-2xl;
+  animation: blurAnimation 2s infinite;
+}
 @media (prefers-color-scheme: dark) {
   :root {
   }

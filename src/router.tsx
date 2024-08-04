@@ -4,6 +4,7 @@ import Layout from './Components/Layout';
 import { SearchPage } from './pages';
 import TitlePage from './pages/TitlePage';
 import ChapterViewer from './Components/ChapterViewer';
+import ConstructionPage from './pages/constructionPage';
 
 export const router = createBrowserRouter([
   {
@@ -20,7 +21,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'titles/latest',
-        element: <div>Latest Titles</div>,
+        element: <ConstructionPage />,
       },
       {
         path: 'search',
