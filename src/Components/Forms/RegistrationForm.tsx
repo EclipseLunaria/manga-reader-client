@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import { FormButton, TextInput } from './FormComponents';
-import axios from 'axios';
-
+import React, { useEffect, useState } from 'react';
+import { FormButton, TextInput, ErrorMessageBox } from './FormComponents';
+import registerUser from '../../utils/register';
 interface IRegistrationFormData {
   email: string;
   username: string;
@@ -14,6 +13,9 @@ const RegistrationForm = () => {
     username: '',
     password: '',
   });
+
+  const [error, setError] = useState<string>('');
+
   const handleFieldChange = (
     type: string,
     e: React.ChangeEvent<HTMLInputElement>,
@@ -22,14 +24,31 @@ const RegistrationForm = () => {
     console.log(formData);
   };
 
-  const handleSubmit = () => {
-    axios.post('http://localhost:6700/register', formData);
-    console.log('Form Submitted');
+  const handleSubmit = async () => {
+    const registerResponse = await registerUser(
+      formData.username,
+      formData.email,
+      formData.password,
+    );
+    if (registerResponse.error) {
+      setError(registerResponse.error);
+    } else {
+      console.log('User registered successfully');
+    }
   };
+
+  useEffect(() => {
+    setTimeout(() => {
+      setError('');
+    }, 5000);
+  }, [error]);
   return (
     <div className="w-full">
       <h1 className="flex justify-center">Registration Form</h1>
       <form className="flex flex-col justify-center">
+        {error && (
+          <ErrorMessageBox message={error} onClose={() => setError('')} />
+        )}
         <TextInput
           type="email"
           value={formData.email}
