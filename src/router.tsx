@@ -46,23 +46,23 @@ export const router = createBrowserRouter([
         element: <ConstructionPage />,
       },
       {
-        path: 'library/shelf',
+        path: 'my/shelf',
         element: <ConstructionPage />,
       },
       {
-        path: 'library/collections',
+        path: 'my/collections',
         element: <ConstructionPage />,
       },
       {
-        path: 'library/collections/:collectionId',
+        path: 'my/collections/:collectionId',
         element: <ConstructionPage />,
       },
       {
-        path: 'library/feed',
+        path: 'my/feed',
         element: <ConstructionPage />,
       },
       {
-        path: 'library/history',
+        path: 'my/history',
         element: <ConstructionPage />,
       },
     ],

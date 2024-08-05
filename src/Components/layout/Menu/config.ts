@@ -14,8 +14,10 @@ const MenuConfiguration: MenuSectionProps[] = [
     title: 'Library',
     icon: '📚',
     items: [
-      { text: 'Manga', link: '/library/manga' },
-      { text: 'Anime', link: '/library/anime' },
+      { text: 'Shelf', link: '/my/shelf' },
+      { text: 'Collections', link: '/my/collections' },
+      { text: "What's New", link: '/my/feed' },
+      { text: 'History', link: '/my/history' },
     ],
   },
   {
