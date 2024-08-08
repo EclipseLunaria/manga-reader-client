@@ -3,7 +3,6 @@ const path = require('path');
 
 module.exports = {
   entry: './src/index.tsx',
-  target: 'web',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
@@ -11,11 +10,6 @@ module.exports = {
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
-    fallback: {
-      os: false,
-      crypto: false,
-      process: require.resolve('process/browser'),
-    },
   },
   module: {
     rules: [
@@ -42,15 +36,7 @@ module.exports = {
       },
     ],
   },
-  devServer: {
-    static: {
-      directory: path.join(__dirname, 'dist'),
-    },
-    compress: true,
-    port: 6969,
-    hot: true,
-    historyApiFallback: true, // Enable single page application routing
-  },
+
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
