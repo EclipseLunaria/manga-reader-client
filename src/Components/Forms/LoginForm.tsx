@@ -29,6 +29,7 @@ const LoginForm = () => {
       setError(loginResponse.error);
     } else {
       console.log('User logged in successfully');
+      console.log(loginResponse);
     }
   };
 
