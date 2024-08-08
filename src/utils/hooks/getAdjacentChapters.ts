@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { Chapter } from '../types';
 
 const getAdjacentChapters = async (

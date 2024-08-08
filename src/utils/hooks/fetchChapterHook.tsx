@@ -1,4 +1,6 @@
+import path from 'path';
 import { useEffect, useState } from 'react';
+import { API_BASE_URL } from '../api';
 
 const fetchChapterHook = (mangaId: string, chapterId: string) => {
   const [chapter, setChapter] = useState<string[] | null>(null);
@@ -6,7 +8,7 @@ const fetchChapterHook = (mangaId: string, chapterId: string) => {
 
   useEffect(() => {
     const fetchChapter = async () => {
-      const ENDPOINT_URL = `http://localhost:6900/fetch/manga/${mangaId}/chapter/${chapterId}`;
+      const ENDPOINT_URL = `${API_BASE_URL}/fetch/manga/${mangaId}/chapter/${chapterId}`;
       console.log(ENDPOINT_URL);
       try {
         const response = await fetch(ENDPOINT_URL);

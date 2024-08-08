@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios, { AxiosError, AxiosResponse } from 'axios';
+import path from 'path';
+import { API_BASE_URL } from '../api';
 interface UseApiResponse<T> {
   data: T | null;
   loading: boolean;
@@ -13,7 +15,7 @@ const useSeriesSearchApi = <T,>(searchTerm: string): UseApiResponse<T> => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const ENDPOINT_URL = `http://localhost:6900/manga/search?q=${searchTerm}`;
+      const ENDPOINT_URL = `${API_BASE_URL}/manga/search?q=${searchTerm}`;
       console.log('fetching data from', ENDPOINT_URL);
       try {
         const response: AxiosResponse<T> = await axios.get<T>(ENDPOINT_URL);
