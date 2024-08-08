@@ -11,11 +11,7 @@ module.exports = {
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
-    fallback: {
-      os: false,
-      crypto: false,
-      process: require.resolve('process/browser'),
-    },
+
   },
   module: {
     rules: [
