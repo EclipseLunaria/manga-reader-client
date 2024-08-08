@@ -1,11 +1,11 @@
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import Layout from './Components/Layout';
-import { SearchPage } from './pages';
-import TitlePage from './pages/TitlePage';
+import { SearchPage } from './Pages';
+import TitlePage from './Pages/TitlePage';
 import ChapterViewer from './Components/ChapterViewer';
-import ConstructionPage from './pages/constructionPage';
-import PageNotFound from './pages/PageNotFound';
+import ConstructionPage from './Pages/ConstructionPage';
+import PageNotFound from './Pages/PageNotFound';
 
 export const router = createBrowserRouter([
   {

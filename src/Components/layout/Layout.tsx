@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import { Outlet } from 'react-router-dom';
 import Menu from './Menu';
-import PageHeader from './Header';
+import PageHeader from './PageHeader';
+
 const Layout: React.FC = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const menuRef = useRef<HTMLDivElement>(null);

@@ -14,7 +14,6 @@ module.exports = {
     fallback: {
       os: false,
       crypto: false,
-      process: require.resolve('process/browser'),
     },
   },
   module: {
