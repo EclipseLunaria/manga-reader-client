@@ -1,8 +1,5 @@
 #!/bin/bash
 
-LOG_FILE=/var/log/manga-reader/client/deploy.log
-
-{
 	echo "Deployment started: $(date)"
 
 
@@ -23,4 +20,3 @@ LOG_FILE=/var/log/manga-reader/client/deploy.log
 	#Deploy to /var/www/manga-reader/client
 	rm -rf /var/www/manga_reader/client/*
 	cp -r dist/* /var/www/manga_reader/client/
-} >> $LOG_FILE 2>&1
