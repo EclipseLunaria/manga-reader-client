@@ -8,13 +8,14 @@
 	git fetch origin main
 	git reset --hard origin/main
 
+	export NODE_ENV=development
 	#Install dependencies
-	pwd
+
 	npm install
 
 	# Run tests (To be implemented)
 	# npm test
-
+	export NODE_ENV=production
 	# Build project
 	npm run build
 
