@@ -9,6 +9,7 @@
 	git reset --hard origin/main
 
 	#Install dependencies
+	pwd
 	npm install
 
 	# Run tests (To be implemented)
