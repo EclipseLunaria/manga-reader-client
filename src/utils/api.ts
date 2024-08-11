@@ -1,8 +1,3 @@
-// Load environment variables from .env file if in development
-if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').config();
-}
-
 // Log the current environment
 console.log('Environment:', process.env.NODE_ENV);
 
@@ -15,7 +10,9 @@ const config = {
 
 // Select the API base URL based on the current environment
 const API_BASE_URL =
-  config[process.env.NODE_ENV as keyof typeof config] || config.development;
+  !process.env.NODE_ENV || process.env.NODE_ENV === 'production'
+    ? config.production
+    : config.development;
 
 // Export the API base URL for use in other modules
 export { API_BASE_URL };
