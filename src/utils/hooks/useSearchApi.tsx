@@ -19,7 +19,8 @@ const useSeriesSearchApi = <T,>(searchTerm: string): UseApiResponse<T> => {
       console.log('fetching data from', ENDPOINT_URL);
       try {
         const response: AxiosResponse<T> = await axios.get<T>(ENDPOINT_URL);
-        setData(response.data);
+        console.log('response', (response.data as any).results);
+        setData((response.data as any).results);
       } catch (err: any) {
         setError(err as AxiosError);
       } finally {

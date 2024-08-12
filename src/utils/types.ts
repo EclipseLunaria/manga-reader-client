@@ -10,6 +10,7 @@ interface Chapter {
 }
 
 interface SeriesInfo {
+  manga_id: string;
   title: string;
   author: string;
   image: string;

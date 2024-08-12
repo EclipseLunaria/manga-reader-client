@@ -2,11 +2,12 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSeriesSearchApi } from '../utils/hooks';
 import MangaCard, { MangaCardProps } from '../Components/MangaCard';
+import { SeriesInfo } from '../utils/types';
 
 const SearchPage = () => {
   const { search } = useLocation();
   const query = new URLSearchParams(search).get('q') || '';
-  const { data, loading } = useSeriesSearchApi<MangaCardProps[]>(query);
+  const { data, loading } = useSeriesSearchApi<SeriesInfo[]>(query);
   return (
     <div>
       <h1>Search Page</h1>
@@ -18,5 +19,12 @@ const SearchPage = () => {
     </div>
   );
 };
+
+// title: string;
+//   link: string;
+//   image: string;
+//   author: string;
+//   rating: string;
+//   seriesId: string;
 
 export default SearchPage;

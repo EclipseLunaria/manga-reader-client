@@ -1,18 +1,20 @@
 import React from 'react';
 import { SeriesInfoBox } from './SeriesInfo';
+import { SeriesInfo } from '../../utils/types';
 export type MangaCardProps = {
   title: string;
   link: string;
   image: string;
   author: string;
   rating: string;
-  seriesId: string;
+  manga_id: string;
 };
 // TODO: Fix styling for long titles to not stretch the card image
-const MangaCard = (props: MangaCardProps) => {
+const MangaCard = (props: SeriesInfo) => {
+  console.log('manga card props', props);
   return (
     <a
-      href={`/title/${props.seriesId}`}
+      href={`/title/${props.manga_id}`}
       className="manga-card w-full bg-secondary h-80 rounded-md p-1 flex flex-row m-2"
     >
       <div className="image-container h-full p-2 relative">
@@ -22,7 +24,6 @@ const MangaCard = (props: MangaCardProps) => {
           className="h-full rounded-lg relative"
         />
         <div className="rating absolute bottom-2 right-2 bg-black bg-opacity-50 rounded-md p-1">
-          {props.rating}
           <span className="text-yellow-400 ml-1">★</span>
         </div>
       </div>
@@ -31,7 +32,7 @@ const MangaCard = (props: MangaCardProps) => {
           {props.title}
         </div>
         <div className="manga-info h-full">
-          <SeriesInfoBox mangaId={props.seriesId} />
+          <SeriesInfoBox seriesInfo={props} />
         </div>
       </div>
     </a>
