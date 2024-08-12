@@ -1,14 +1,7 @@
 import React from 'react';
 import { SeriesInfoBox } from './SeriesInfo';
 import { SeriesInfo } from '../../utils/types';
-export type MangaCardProps = {
-  title: string;
-  link: string;
-  image: string;
-  author: string;
-  rating: string;
-  manga_id: string;
-};
+
 // TODO: Fix styling for long titles to not stretch the card image
 const MangaCard = (props: SeriesInfo) => {
   console.log('manga card props', props);

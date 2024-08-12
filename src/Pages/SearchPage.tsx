@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSeriesSearchApi } from '../utils/hooks';
-import MangaCard, { MangaCardProps } from '../Components/MangaCard';
+import MangaCard from '../Components/MangaCard';
 import { SeriesInfo } from '../utils/types';
 
 const SearchPage = () => {
