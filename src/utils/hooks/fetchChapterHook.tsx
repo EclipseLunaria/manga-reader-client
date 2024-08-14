@@ -8,7 +8,7 @@ const fetchChapterHook = (mangaId: string, chapterId: string) => {
 
   useEffect(() => {
     const fetchChapter = async () => {
-      const ENDPOINT_URL = `${API_BASE_URL}/fetch/manga/${mangaId}/chapter/${chapterId}`;
+      const ENDPOINT_URL = `${API_BASE_URL}/fetch/${mangaId}/${chapterId}`;
       console.log(ENDPOINT_URL);
       try {
         const response = await fetch(ENDPOINT_URL);
