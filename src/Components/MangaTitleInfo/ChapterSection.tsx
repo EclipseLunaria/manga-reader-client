@@ -18,7 +18,7 @@ const ChapterSection = (props: { chapters: Chapter[]; mangaId: string }) => {
           <ChapterCard
             key={index}
             chapter={chapter.title}
-            id={chapter.chapter_id}
+            chapter_id={chapter.chapter_id}
             mangaId={props.mangaId}
           />
         ))}
@@ -31,10 +31,10 @@ export default ChapterSection;
 
 const ChapterCard = (props: {
   chapter: string;
-  id: string;
+  chapter_id: string;
   mangaId: string;
 }) => {
-  const chapterId = props.id;
+  const chapterId = props.chapter_id;
   if (!props.chapter) {
     return null;
   }
