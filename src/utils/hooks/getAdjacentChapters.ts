@@ -8,7 +8,7 @@ const getAdjacentChapters = async (
     return { nextChapter: null, prevChapter: null };
   }
   const chapterIndex = chapters.findIndex(
-    (chapter) => chapter.id === chapterId,
+    (chapter) => chapter.chapter_id === chapterId,
   );
   const nextChapter = chapters[chapterIndex + 1];
   const prevChapter = chapters[chapterIndex - 1];

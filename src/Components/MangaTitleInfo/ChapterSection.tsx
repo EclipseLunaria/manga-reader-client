@@ -18,7 +18,7 @@ const ChapterSection = (props: { chapters: Chapter[]; mangaId: string }) => {
           <ChapterCard
             key={index}
             chapter={chapter.title}
-            id={chapter.id}
+            id={chapter.chapter_id}
             mangaId={props.mangaId}
           />
         ))}

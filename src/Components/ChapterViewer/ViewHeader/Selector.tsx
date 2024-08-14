@@ -32,7 +32,7 @@ const ChapterSelector = (props: {
   }, [chapterData, props.chapterId]);
 
   const options = chapterData?.map((chapter, index) => (
-    <option key={index} value={chapter.id}>
+    <option key={index} value={chapter.chapter_id}>
       {chapter.title}
     </option>
   ));
@@ -44,7 +44,7 @@ const ChapterSelector = (props: {
           text="Previous Chapter"
           onClick={() => {
             navigate(
-              `/title/${props.mangaId}/chapter/${adjacentChapters.prevChapter?.id}`,
+              `/title/${props.mangaId}/chapter/${adjacentChapters.prevChapter?.chapter_id}`,
             );
             props.onPageSet(0);
           }}
@@ -53,7 +53,7 @@ const ChapterSelector = (props: {
           text="Next Chapter"
           onClick={() => {
             navigate(
-              `/title/${props.mangaId}/chapter/${adjacentChapters.nextChapter?.id}`,
+              `/title/${props.mangaId}/chapter/${adjacentChapters.nextChapter?.chapter_id}`,
               { replace: true },
             );
             props.onPageSet(0);

@@ -4,7 +4,7 @@ interface Rating {
 }
 
 interface Chapter {
-  id: string;
+  chapter_id: string;
   title: string;
   link: string;
 }
