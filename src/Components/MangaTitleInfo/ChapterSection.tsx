@@ -35,6 +35,7 @@ const ChapterCard = (props: {
   mangaId: string;
 }) => {
   const chapterId = props.chapter_id;
+  console.log(chapterId)
   if (!props.chapter) {
     return null;
   }
