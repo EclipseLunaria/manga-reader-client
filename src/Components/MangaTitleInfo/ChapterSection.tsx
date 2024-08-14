@@ -8,6 +8,7 @@ const ChapterSection = (props: { chapters: Chapter[]; mangaId: string }) => {
     props.mangaId,
     'chapters',
   );
+  console.log(chapterData,":chapter data")
   if (!chapterData) {
     return null;
   }
