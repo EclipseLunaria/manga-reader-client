@@ -21,4 +21,6 @@ interface SeriesInfo {
   chapters: Chapter[];
 }
 
-export { SeriesInfo, Chapter };
+type SearchCategory = "last_updated" | "popular" | "newest";
+
+export { SeriesInfo, Chapter, SearchCategory };

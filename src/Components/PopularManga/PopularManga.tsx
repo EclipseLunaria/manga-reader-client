@@ -1,18 +1,17 @@
 import React from 'react';
-import { useSeriesSearchApi } from '../../utils/hooks';
-import { SeriesInfo } from '../../utils/types';
 import Carousel from './Carousel/Carousel';
+import getSeriesListHook from '../../utils/hooks/getMangaList';
 const PopularManga = () => {
-  const { data, loading } = useSeriesSearchApi<SeriesInfo[]>('fuufu');
+  const  { seriesInfoList, loading } = getSeriesListHook('last_updated')
   if (loading) {
     return <p>Loading...</p>;
   }
-  console.log(data);
+  console.log(seriesInfoList);
   return (
     <div className="popular-manga-container bg-secondary rounded-xl p-4">
       <div className="popular-manga-body">
         {loading && <p>Loading...</p>}
-        {!loading && data && <Carousel seriesList={data} />}
+        {!loading && seriesInfoList && <Carousel seriesList={seriesInfoList} />}
       </div>
     </div>
   );
