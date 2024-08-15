@@ -28,9 +28,7 @@ export const SeriesInfoBox = (props: { seriesInfo: SeriesInfo }) => {
         </div>
       </div>
       <div className="series-description-container">
-        <div className="bold p-1 text-2xl border-b-2 border-black">
-          Description:
-        </div>
+        <div className="bold p-1 text-2xl ">Description:</div>
         <div
           className="series-info-description no-scrollbar pb-1 pt-3"
           style={{ overflowY: 'auto', height: '150px' }}

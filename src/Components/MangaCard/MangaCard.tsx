@@ -14,7 +14,7 @@ const MangaCard = (props: SeriesInfo) => {
         <img
           src={props.image}
           alt={props.title}
-          className="h-full rounded-lg relative"
+          className="h-full w-auto rounded-lg relative"
         />
         <div className="rating absolute bottom-2 right-2 bg-black bg-opacity-50 rounded-md p-1">
           <span className="text-yellow-400 ml-1">★</span>
