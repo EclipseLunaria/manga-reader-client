@@ -15,14 +15,16 @@ const ChapterSection = (props: { chapters: Chapter[]; mangaId: string }) => {
   return (
     <div className="chapter-section w-full ">
       <div className="chapter-list">
-        {chapterData.map((chapter, index) => (
-          <ChapterCard
-            key={index}
-            chapter={chapter.title}
-            chapter_id={chapter.chapter_id}
-            mangaId={props.mangaId}
-          />
-        ))}
+        {chapterData
+          .sort((a, b) => a.chapter_id.localeCompare(b.chapter_id))
+          .map((chapter, index) => (
+            <ChapterCard
+              key={index}
+              chapter={chapter.title}
+              chapter_id={chapter.chapter_id}
+              mangaId={props.mangaId}
+            />
+          ))}
       </div>
     </div>
   );
