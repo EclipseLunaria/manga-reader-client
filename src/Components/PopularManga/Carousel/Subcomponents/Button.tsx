@@ -6,7 +6,7 @@ const CarouselButton = (props: { direction: string; onClick?: () => void }) => {
   return (
     <div
       onClick={props.onClick}
-      className={`carousel-button absolute top-1/2 bg-opacity-30 z-20 bg-black text-white
+      className={`carousel-button absolute top-1/3 bg-opacity-30 z-20 bg-black text-white
                   p-4 cursor-pointer text-5xl ${buttonStyle} rounded-2xl`}
     >
       {props.direction === 'left' ? '⮜' : '⮞'}

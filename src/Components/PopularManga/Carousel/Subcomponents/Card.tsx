@@ -6,7 +6,7 @@ const CarouselCard = (props: { series: SeriesInfo }) => {
       <img
         src={props.series.image}
         alt={props.series.title}
-        className="h-full rounded-xl"
+        className="h-48 rounded-xl"
       />
     </div>
   );
