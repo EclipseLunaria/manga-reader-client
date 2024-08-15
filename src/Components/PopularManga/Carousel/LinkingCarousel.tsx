@@ -5,6 +5,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 const LinkingCarousel = (props: {
+  autoplay?: boolean;
   children: ReactNode[];
   slotCount: number;
   setRef: (slider: Slider | null) => void;
@@ -12,6 +13,7 @@ const LinkingCarousel = (props: {
   disableButton?: boolean;
 }) => {
   const settings = {
+    autoplay: props.autoplay,
     focusOnSelect: true,
     infinite: true,
     speed: 500,
@@ -24,7 +26,7 @@ const LinkingCarousel = (props: {
 
   return (
     <Slider
-      className="h-96"
+      className="h-fit m-8"
       {...settings}
       ref={(slider) => props.setRef(slider)}
       asNavFor={props.sliderLink}

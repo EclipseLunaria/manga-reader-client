@@ -37,9 +37,10 @@ const Carousel = (props: { seriesList: SeriesInfo[] }) => {
         children={props.seriesList.map((series, index) => (
           <CarouselCard series={series} key={index} />
         ))}
-        slotCount={5}
+        slotCount={8}
         setRef={setRef2}
         sliderLink={nav1 ?? undefined}
+        autoplay
       />
     </div>
   );
