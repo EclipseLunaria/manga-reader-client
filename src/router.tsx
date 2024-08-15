@@ -6,12 +6,17 @@ import TitlePage from './Pages/TitlePage';
 import ChapterViewer from './Components/ChapterViewer';
 import ConstructionPage from './Pages/ConstructionPage';
 import PageNotFound from './Pages/PageNotFound';
+import HomePage from './Pages/HomePage';
 
 export const router = createBrowserRouter([
   {
     path: '/',
     element: <Layout />,
     children: [
+      {
+        path: '/',
+        element: <HomePage />,
+      },
       {
         path: 'titles',
         element: <ConstructionPage />,
