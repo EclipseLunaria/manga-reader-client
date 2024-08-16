@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Slider from 'react-slick';
-import MangaCard from '../../MangaCard';
-import { SeriesInfo } from '../../../utils/types';
-import LinkingCarousel from './LinkingCarousel';
-import CarouselCard from './Subcomponents/Card';
+import LinkingCarousel from './LinkedCarousel';
+import { CarouselTransformer } from '../types';
 
-const Carousel = (props: { seriesList: SeriesInfo[] }) => {
+const DoubleCarousel = <T,>(props: {
+  data: T[];
+  transformer1: CarouselTransformer<T>;
+  transformer2: CarouselTransformer<T>;
+}) => {
   const [nav1, setNav1] = useState<Slider | null>(null);
   const [nav2, setNav2] = useState<Slider | null>(null);
   const sliderRef1 = useRef<Slider | null>(null);
@@ -23,20 +25,16 @@ const Carousel = (props: { seriesList: SeriesInfo[] }) => {
     sliderRef2.current = slider;
   };
   return (
-    <div className="">
+    <div className="flex flex-col">
       <LinkingCarousel
-        children={props.seriesList.map((series, index) => (
-          <MangaCard {...series} key={index} />
-        ))}
+        children={props.data.map((item) => props.transformer1(item))}
         slotCount={1}
         setRef={setRef1}
         sliderLink={nav2 ?? undefined}
         disableButton
       />
       <LinkingCarousel
-        children={props.seriesList.map((series, index) => (
-          <CarouselCard series={series} key={index} />
-        ))}
+        children={props.data.map((item) => props.transformer2(item))}
         slotCount={8}
         setRef={setRef2}
         sliderLink={nav1 ?? undefined}
@@ -46,4 +44,4 @@ const Carousel = (props: { seriesList: SeriesInfo[] }) => {
   );
 };
 
-export default Carousel;
+export default DoubleCarousel;

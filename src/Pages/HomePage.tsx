@@ -1,5 +1,5 @@
 import React from 'react';
-import PopularManga from '../Components/PopularManga';
+import PopularMangaCarousel from '../Components/Carousel/PopularMangaCarousel';
 
 const HomePage = () => {
   return (
@@ -8,7 +8,7 @@ const HomePage = () => {
         <h1>Home Page</h1>
       </div>
       <div className="home-page-body">
-        <PopularManga />
+        <PopularMangaCarousel />
       </div>
     </div>
   );

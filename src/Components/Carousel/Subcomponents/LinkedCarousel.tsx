@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import Slider from 'react-slick';
-import { CarouselButton } from './Subcomponents/Button';
+import { CarouselButton } from './Button';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
@@ -26,7 +26,7 @@ const LinkingCarousel = (props: {
 
   return (
     <Slider
-      className="h-fit m-8"
+      className="h-fit m-4 flex justify-center items-center "
       {...settings}
       ref={(slider) => props.setRef(slider)}
       asNavFor={props.sliderLink}

@@ -8,7 +8,7 @@ const MangaCard = (props: SeriesInfo) => {
   return (
     <a
       href={`/title/${props.manga_id}`}
-      className="manga-card w-full bg-secondary h-80 rounded-md p-1 flex flex-row m-2"
+      className="manga-card w-full bg-secondary h-80 rounded-md p-1 flex flex-row m-4"
     >
       <div className="image-container h-full p-2 relative">
         <img
