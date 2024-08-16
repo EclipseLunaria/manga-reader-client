@@ -16,7 +16,7 @@ const ChapterSection = (props: { chapters: Chapter[]; mangaId: string }) => {
     <div className="chapter-section w-full ">
       <div className="chapter-list">
         {chapterData
-          .sort((a, b) => a.chapter_id.localeCompare(b.chapter_id))
+          .sort((a, b) => parseFloat(a.chapter_id) - parseFloat(b.chapter_id))
           .map((chapter, index) => (
             <ChapterCard
               key={index}
