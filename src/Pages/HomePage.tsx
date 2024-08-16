@@ -1,5 +1,6 @@
 import React from 'react';
 import PopularMangaCarousel from '../Components/Carousel/PopularMangaCarousel';
+import HomepageCourasel from '../Components/Carousel/HomepageHeader';
 
 const HomePage = () => {
   return (
@@ -8,6 +9,7 @@ const HomePage = () => {
         <h1>Home Page</h1>
       </div>
       <div className="home-page-body">
+        {/* <HomepageCourasel /> */}
         <PopularMangaCarousel />
       </div>
     </div>

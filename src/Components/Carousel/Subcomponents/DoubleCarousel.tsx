@@ -1,12 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
-import Slider from 'react-slick';
+import Slider, { Settings as SliderSettings } from 'react-slick';
 import LinkingCarousel from './LinkedCarousel';
-import { CarouselTransformer } from '../types';
+import { CarouselTransformer } from '../transformers';
 
 const DoubleCarousel = <T,>(props: {
   data: T[];
   transformer1: CarouselTransformer<T>;
   transformer2: CarouselTransformer<T>;
+  sliderOverride1?: Partial<SliderSettings>;
+  sliderOverride2?: Partial<SliderSettings>;
 }) => {
   const [nav1, setNav1] = useState<Slider | null>(null);
   const [nav2, setNav2] = useState<Slider | null>(null);
@@ -28,17 +30,16 @@ const DoubleCarousel = <T,>(props: {
     <div className="flex flex-col">
       <LinkingCarousel
         children={props.data.map((item) => props.transformer1(item))}
-        slotCount={1}
         setRef={setRef1}
         sliderLink={nav2 ?? undefined}
-        disableButton
+        settingOverride={props.sliderOverride1}
       />
       <LinkingCarousel
         children={props.data.map((item) => props.transformer2(item))}
-        slotCount={8}
         setRef={setRef2}
         sliderLink={nav1 ?? undefined}
         autoplay
+        settingOverride={props.sliderOverride2}
       />
     </div>
   );

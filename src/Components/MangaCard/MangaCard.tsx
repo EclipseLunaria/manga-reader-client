@@ -3,12 +3,14 @@ import { SeriesInfoBox } from './SeriesInfo';
 import { SeriesInfo } from '../../utils/types';
 
 // TODO: Fix styling for long titles to not stretch the card image
-const MangaCard = (props: SeriesInfo) => {
+const MangaCard = (props: SeriesInfo & { bgDisabled?: boolean }) => {
   console.log('manga card props', props);
   return (
     <a
       href={`/title/${props.manga_id}`}
-      className="manga-card w-full bg-secondary h-80 rounded-md p-1 flex flex-row m-4"
+      className={`manga-card  w-full h-80 rounded-md p-1 flex flex-row m-4 ${
+        props.bgDisabled ? 'bg-none' : 'bg-secondary'
+      }`}
     >
       <div className="image-container h-full p-2 relative">
         <img
