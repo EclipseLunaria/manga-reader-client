@@ -23,7 +23,7 @@ const fetchFieldHook = <T,>(mangaId: string, fieldId: string) => {
     };
     fetchChapter();
   }, [mangaId, fieldId]);
-
+  console.log("field:", field)
   return { field, loading };
 };
 
