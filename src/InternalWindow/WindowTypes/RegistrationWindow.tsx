@@ -7,6 +7,7 @@ const RegistrationWindow = (props: { onClick: () => void }) => {
       title="Registration"
       dimensions={{ width: '500px', height: '600px' }}
       onClose={props.onClick}
+      initialPosition={{ top: 400, left: 400 }}
     >
       <RegistrationForm />
     </InternalWindow>

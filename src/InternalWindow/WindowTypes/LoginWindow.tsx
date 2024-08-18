@@ -7,6 +7,7 @@ const LoginWindow = (props: { onClick: () => void }) => {
       title="Login"
       dimensions={{ width: '500px', height: '600px' }}
       onClose={props.onClick}
+      initialPosition={{ top: 100, left: 400 }}
     >
       <LoginForm />
     </InternalWindow>
