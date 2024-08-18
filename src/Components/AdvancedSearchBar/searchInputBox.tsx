@@ -4,7 +4,7 @@ const SearchInputBox = (props: { handleSearch: (query: string) => void }) => {
   const [searchBarFocus, setSearchBarFocus] = useState(false);
   const [searchString, setSearchString] = useState('');
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key == 'Enter') props.handleSearch(searchString);
+    if (e.key == 'Enter' && searchString) props.handleSearch(searchString);
   };
   return (
     <div
