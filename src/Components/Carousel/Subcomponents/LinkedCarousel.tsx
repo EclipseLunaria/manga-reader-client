@@ -1,32 +1,32 @@
 import React, { ReactNode } from 'react';
-import Slider from 'react-slick';
-import { CarouselButton } from './Subcomponents/Button';
+import Slider, { Settings as SliderSettings } from 'react-slick';
+import { CarouselButton } from './Button';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 const LinkingCarousel = (props: {
   autoplay?: boolean;
   children: ReactNode[];
-  slotCount: number;
   setRef: (slider: Slider | null) => void;
   sliderLink?: Slider;
-  disableButton?: boolean;
+  settingOverride?: Partial<SliderSettings>;
+  styleOverride?: string;
 }) => {
-  const settings = {
+  const defaultSettings: SliderSettings = {
     autoplay: props.autoplay,
     focusOnSelect: true,
     infinite: true,
     speed: 500,
-    slidesToShow: props.slotCount,
     slidesToScroll: 1,
     nextArrow: <CarouselButton direction="right" />,
     prevArrow: <CarouselButton direction="left" />,
-    arrows: !props.disableButton,
   };
+
+  const settings = { ...defaultSettings, ...props.settingOverride };
 
   return (
     <Slider
-      className="h-fit m-8"
+      className={props.styleOverride ?? ''}
       {...settings}
       ref={(slider) => props.setRef(slider)}
       asNavFor={props.sliderLink}
