@@ -1,7 +1,7 @@
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import Layout from './Components/Layout';
-import { SearchPage } from './Pages';
+import { AdvancedSearchPage, SearchPage } from './Pages';
 import TitlePage from './Pages/TitlePage';
 import ChapterViewer from './Components/ChapterViewer';
 import ConstructionPage from './Pages/ConstructionPage';
@@ -19,7 +19,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'titles',
-        element: <ConstructionPage />,
+        element: <AdvancedSearchPage />,
       },
       {
         path: 'titles/recent',
