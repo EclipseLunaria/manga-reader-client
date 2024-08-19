@@ -10,6 +10,7 @@ const LinkingCarousel = (props: {
   setRef: (slider: Slider | null) => void;
   sliderLink?: Slider;
   settingOverride?: Partial<SliderSettings>;
+  styleOverride?: string;
 }) => {
   const defaultSettings: SliderSettings = {
     autoplay: props.autoplay,
@@ -25,7 +26,7 @@ const LinkingCarousel = (props: {
 
   return (
     <Slider
-      className="h-fit m-4 flex justify-center items-center "
+      className={props.styleOverride ?? ''}
       {...settings}
       ref={(slider) => props.setRef(slider)}
       asNavFor={props.sliderLink}

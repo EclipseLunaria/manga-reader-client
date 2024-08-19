@@ -9,6 +9,8 @@ const DoubleCarousel = <T,>(props: {
   transformer2: CarouselTransformer<T>;
   sliderOverride1?: Partial<SliderSettings>;
   sliderOverride2?: Partial<SliderSettings>;
+  styleOverride1?: string;
+  styleOverride2?: string;
 }) => {
   const [nav1, setNav1] = useState<Slider | null>(null);
   const [nav2, setNav2] = useState<Slider | null>(null);
@@ -27,7 +29,7 @@ const DoubleCarousel = <T,>(props: {
     sliderRef2.current = slider;
   };
   return (
-    <div className="flex flex-col">
+    <div className="w-full h-full">
       <LinkingCarousel
         children={props.data.map((item) => props.transformer1(item))}
         setRef={setRef1}
@@ -40,6 +42,7 @@ const DoubleCarousel = <T,>(props: {
         sliderLink={nav1 ?? undefined}
         autoplay
         settingOverride={props.sliderOverride2}
+        styleOverride={props.styleOverride2}
       />
     </div>
   );

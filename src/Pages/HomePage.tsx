@@ -9,8 +9,8 @@ const HomePage = () => {
         <h1>Home Page</h1>
       </div>
       <div className="home-page-body">
-        {/* <HomepageCourasel /> */}
-        <PopularMangaCarousel />
+        <HomepageCourasel />
+        {/* <PopularMangaCarousel /> */}
       </div>
     </div>
   );
