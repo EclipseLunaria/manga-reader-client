@@ -2,13 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { FormButton, TextInput, ErrorMessageBox } from './FormComponents';
 import registerUser from '../../utils/register';
 interface IRegistrationFormData {
-  email: string;
   username: string;
+  name: string;
+  email: string;
   password: string;
 }
 
 const RegistrationForm = () => {
   const [formData, setFormData] = useState<IRegistrationFormData>({
+    name: '',
     email: '',
     username: '',
     password: '',
@@ -26,10 +28,12 @@ const RegistrationForm = () => {
 
   const handleSubmit = async () => {
     const registerResponse = await registerUser(
+      formData.name,
       formData.username,
       formData.email,
       formData.password,
     );
+    console.log(registerResponse);
     if (registerResponse.error) {
       setError(registerResponse.error);
     } else {
@@ -49,6 +53,13 @@ const RegistrationForm = () => {
         {error && (
           <ErrorMessageBox message={error} onClose={() => setError('')} />
         )}
+        <TextInput
+          type="name"
+          value={formData.name}
+          onChange={handleFieldChange}
+          placeholder="Name"
+          icon="user"
+        />
         <TextInput
           type="email"
           value={formData.email}

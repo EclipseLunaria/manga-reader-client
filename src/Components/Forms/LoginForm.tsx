@@ -7,7 +7,7 @@ interface ILoginFormData {
   password: string;
 }
 
-const LoginForm = () => {
+const LoginForm = (props: { closeWindow: () => void }) => {
   const [formData, setFormData] = useState<ILoginFormData>({
     username: '',
     password: '',
@@ -30,6 +30,9 @@ const LoginForm = () => {
     } else {
       console.log('User logged in successfully');
       console.log(loginResponse);
+      
+
+      props.closeWindow();
     }
   };
 
@@ -53,8 +56,8 @@ const LoginForm = () => {
           type="username"
           value={formData.username}
           onChange={handleFieldChange}
-          placeholder="Email"
-          icon="envelope"
+          placeholder="Username"
+          icon="user"
         />
         <TextInput
           type="password"

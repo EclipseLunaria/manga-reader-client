@@ -9,7 +9,7 @@ const LoginWindow = (props: { onClick: () => void }) => {
       onClose={props.onClick}
       initialPosition={{ top: 100, left: 400 }}
     >
-      <LoginForm />
+      <LoginForm closeWindow={props.onClick} />
     </InternalWindow>
   );
 };

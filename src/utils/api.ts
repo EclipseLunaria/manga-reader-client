@@ -11,8 +11,36 @@ const config = {
 // Select the API base URL based on the current environment
 const API_BASE_URL =
   !process.env.NODE_ENV || process.env.NODE_ENV === 'production'
-    ? config.production
-    : config.development;
+    ? 'https://manga.eclipselunaria.dev/api'
+    : 'http://localhost:6900';
 
+const AUTH_BASE_URL =
+  !process.env.NODE_ENV || process.env.NODE_ENV === 'production'
+    ? 'https://auth.eclipselunaria.dev'
+    : 'http://:5000';
 // Export the API base URL for use in other modules
-export { API_BASE_URL };
+
+const setAccessToken = (token: string) => {
+  localStorage.setItem('accessToken', token);
+};
+
+const getAccessToken = () => {
+  return localStorage.getItem('accessToken');
+};
+
+const setRefreshToken = (token: string) => {
+  localStorage.setItem('refreshToken', token);
+};
+
+const getRefreshToken = () => {
+  return localStorage.getItem('refreshToken');
+};
+
+export {
+  API_BASE_URL,
+  AUTH_BASE_URL,
+  getAccessToken,
+  setAccessToken,
+  getRefreshToken,
+  setRefreshToken,
+};

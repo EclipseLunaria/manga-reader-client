@@ -21,6 +21,18 @@ interface SeriesInfo {
   chapters: Chapter[];
 }
 
-type SearchCategory = "last_updated" | "popular" | "newest";
+type SearchCategory = 'last_updated' | 'popular' | 'newest';
 
-export { SeriesInfo, Chapter, SearchCategory };
+type OAuthProvider = 'mal' | 'google' | 'facebook';
+
+interface IMALRegistration {
+  username: string;
+  email: string;
+  access_token: string;
+  refresh_token: string;
+  token_expires_at: Date;
+  provider: string;
+  provider_id: string;
+}
+
+export { SeriesInfo, Chapter, SearchCategory, OAuthProvider, IMALRegistration };

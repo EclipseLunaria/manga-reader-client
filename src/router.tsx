@@ -7,6 +7,7 @@ import ChapterViewer from './Components/ChapterViewer';
 import ConstructionPage from './Pages/ConstructionPage';
 import PageNotFound from './Pages/PageNotFound';
 import HomePage from './Pages/HomePage';
+import MalRegisterPage from './Pages/MalRegisterPage';
 
 export const router = createBrowserRouter([
   {
@@ -71,6 +72,10 @@ export const router = createBrowserRouter([
         element: <ConstructionPage />,
       },
     ],
+  },
+  {
+    path: '/register/mal',
+    element: <MalRegisterPage />,
   },
   {
     path: '*',

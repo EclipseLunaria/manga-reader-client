@@ -18,7 +18,7 @@ const UserInfo = () => {
             onClick={toggleMenu}
           ></div>
 
-          <UserMenu />
+          <UserMenu closeMenu={() => setIsMenuHidden(true)} />
         </>
       )}
     </div>
