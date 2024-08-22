@@ -15,7 +15,6 @@ const UserMenu = (props: { closeMenu: () => void }) => {
   useEffect(() => {}, [activeModal]);
   return (
     <div className="menu absolute w-[300px] h-[500px] bg-primary rounded-lg right-0 mt-2 p-4 z-20">
-      <div className="user-menu-item flex flex-col">Profile</div>
       <UserMenuButton
         link="/login"
         text="Sign In"

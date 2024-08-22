@@ -9,7 +9,7 @@ const UserInfo = () => {
     console.log('Menu is hidden:', isMenuHidden);
   };
   return (
-    <div className="relative my-auto p-1 ml-2">
+    <div className="relative my-auto p-1 ml-2 z-50">
       <UserIcon onClick={toggleMenu} />
       {!isMenuHidden && (
         <>
