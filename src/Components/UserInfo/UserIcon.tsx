@@ -1,5 +1,5 @@
 import React from 'react';
-import MikuProfile from '../../../assets/MikuProfile.jpg';
+import MikuProfile from '../../assets/MikuProfile.jpg';
 const UserIcon = (props: { onClick: () => void }) => {
   return (
     <img

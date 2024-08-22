@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../../styles/globals.css';
-import UserInfo from './UserInfo';
+import UserInfo from '../UserInfo';
 
 const PageHeader = (props: {
   onMenuToggled: (menuOpen: boolean) => void;

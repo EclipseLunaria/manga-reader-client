@@ -1,9 +1,9 @@
 import React from 'react';
 import InternalWindow from '../InternalWindow';
-import { RegistrationForm } from '../../Components/Forms';
-import { OAuthProvider } from '../../utils/types';
-import { getOAuthLogo, getOAuthUrl } from '../../utils/oauth.utils';
-import { NavigateOptions, useNavigate } from 'react-router-dom';
+import { RegistrationForm } from '../../Forms';
+import { OAuthProvider } from '../../../utils/types';
+import { getOAuthLogo, getOAuthUrl } from '../../../utils/oauth.utils';
+import { useNavigate } from 'react-router-dom';
 const RegistrationWindow = (props: { onClick: () => void }) => {
   return (
     <InternalWindow
@@ -66,7 +66,7 @@ const handleOauthSignUp = (provider: OAuthProvider) => {
     event: MessageEvent<{ access_token: string; refresh_token: string }>,
   ) => {
     const navigate = useNavigate();
-  
+
     console.log(event.data);
     const { access_token, refresh_token } = event.data;
     console.log(event.data);

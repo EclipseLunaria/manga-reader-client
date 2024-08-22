@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Outlet } from 'react-router-dom';
-import Menu from './Menu';
-import PageHeader from './PageHeader';
+import Menu from '../Menu';
+import PageHeader from './LayoutHeader';
 
 const Layout: React.FC = () => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -27,8 +27,8 @@ const Layout: React.FC = () => {
   return (
     <div className="flex flex-row justify-start w-screen h-full z-50">
       <Menu ref={menuRef} closeMenu={closeMenu} isOpen={isOpen} />
-      <div className="content-outer-container flex w-full justify-center">
-        <div className="content-boxes flex flex-col w-[1400px] justify-center">
+      <div className="content-outer-container flex w-full">
+        <div className="content-boxes flex flex-col w-[1200px] mx-auto">
           <PageHeader isOpen={isOpen} onMenuToggled={handleMenuToggle} />
           <Outlet />
         </div>

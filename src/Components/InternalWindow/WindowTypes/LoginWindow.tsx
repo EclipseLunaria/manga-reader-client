@@ -1,6 +1,6 @@
 import React from 'react';
 import InternalWindow from '../InternalWindow';
-import { LoginForm } from '../../Components/Forms';
+import { LoginForm } from '../../Forms';
 const LoginWindow = (props: { onClick: () => void }) => {
   return (
     <InternalWindow

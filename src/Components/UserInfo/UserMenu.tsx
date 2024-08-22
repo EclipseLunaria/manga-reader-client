@@ -1,8 +1,5 @@
 import React, { ReactNode, useEffect, useState } from 'react';
-import {
-  LoginWindow,
-  RegistrationWindow,
-} from '../../../InternalWindow/WindowTypes';
+import { LoginWindow, RegistrationWindow } from '../InternalWindow/WindowTypes';
 import UserMenuButton from './UserMenuButton';
 
 const UserMenu = (props: { closeMenu: () => void }) => {
