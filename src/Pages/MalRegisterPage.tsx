@@ -12,7 +12,6 @@ const MalRegisterPage = () => {
   const refreshToken = query.get('refresh_token');
   const mal_id = query.get('mal_id');
   const expires_in = parseInt(query.get('expires_in') || '0');
-  // Use the accessToken and refreshToken as needed
   console.log('Access Token:', accessToken);
   console.log('Refresh Token:', refreshToken);
   console.log('MyAnimeList ID:', mal_id);

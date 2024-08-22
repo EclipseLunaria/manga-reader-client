@@ -1,15 +1,7 @@
 import React from 'react';
-import { getSeriesInfoHook } from '../../utils/hooks';
 import { SeriesInfo } from '../../utils/types';
 
 export const SeriesInfoBox = (props: { seriesInfo: SeriesInfo }) => {
-  // const { seriesInfo, loading } = getSeriesInfoHook(props.mangaId);
-  // if (loading) {
-  //   return <div>Loading...</div>;
-  // }
-  // if (!seriesInfo) {
-  //   return <div>Failed to load series info</div>;
-  // }
   return (
     <div className="series-info-box">
       <div className="series-top-info p-2">
