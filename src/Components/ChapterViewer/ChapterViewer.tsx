@@ -34,7 +34,7 @@ const ChapterViewer = () => {
   };
 
   return (
-    <div className="chapter-viewer overflow-x-hidden h-full">
+    <div className="chapter-viewer h-full">
       <ViewerHeader
         title={titleField || ''}
         pgTotal={chapter?.length || 0}
