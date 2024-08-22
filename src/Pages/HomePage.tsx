@@ -1,6 +1,9 @@
 import React from 'react';
-import PopularMangaCarousel from '../Components/Carousel/PopularMangaCarousel';
-import HomepageCourasel from '../Components/Carousel/HomepageHeader';
+import {
+  LatestReleasesCarousel,
+  LatestUpdatesCarousel,
+  PopularMangaCarousel,
+} from '../Components/Carousel';
 
 const HomePage = () => {
   return (
@@ -9,7 +12,9 @@ const HomePage = () => {
         <h1>Home Page</h1>
       </div>
       <div className="home-page-body">
-        <HomepageCourasel />
+        <PopularMangaCarousel />
+        <LatestUpdatesCarousel />
+        <LatestReleasesCarousel />
         {/* <PopularMangaCarousel /> */}
       </div>
     </div>

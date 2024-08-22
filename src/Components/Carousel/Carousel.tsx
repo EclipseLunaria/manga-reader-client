@@ -1,11 +1,14 @@
 import React from 'react';
-import { CarouselTransformer, mangaCardTransformer } from './transformers';
+import { mangaCardTransformer } from './transformers';
 import { getMangaList } from '../../utils/hooks';
-import { SeriesInfo } from '../../utils/types';
 import LinkingCarousel from './Subcomponents/LinkedCarousel';
+import { SearchCategory } from '../../utils/types';
 
-const HomepageCourasel = () => {
-  const { seriesInfoList } = getMangaList('popular');
+const Courasel = (props: {
+  carouselType: SearchCategory;
+  titleText: string;
+}) => {
+  const { seriesInfoList } = getMangaList(props.carouselType);
 
   if (!seriesInfoList) return null;
 
@@ -18,7 +21,7 @@ const HomepageCourasel = () => {
         >
           <div className="relative p-4 bg-primary pr-0">
             <div className="absolute top-0 left-0 w-full h-full border-b-2 border-l-2 rounded-bl-2xl" />
-            Popular Manga
+            {props.titleText}
           </div>
         </div>
 
@@ -51,4 +54,4 @@ const HomepageCourasel = () => {
   );
 };
 
-export default HomepageCourasel;
+export default Courasel;

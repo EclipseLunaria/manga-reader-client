@@ -10,7 +10,7 @@ const getMangaList = (type: SearchCategory) => {
   const categoryPath = {
     last_updated: 'latest/updated',
     popular: 'most/popular',
-    newest: 'latest/added',
+    newest: 'newest',
   };
 
   console.log(API_BASE_URL);
