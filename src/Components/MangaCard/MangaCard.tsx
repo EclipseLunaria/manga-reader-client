@@ -8,15 +8,13 @@ const MangaCard = (props: SeriesInfo & { bgDisabled?: boolean }) => {
   return (
     <a
       href={`/title/${props.manga_id}`}
-      className={`manga-card  w-full h-80 rounded-md p-1 flex flex-row m-4 ${
-        props.bgDisabled ? 'bg-none' : 'bg-secondary'
-      }`}
+      className={`manga-card ${props.bgDisabled ? 'bg-none' : 'bg-secondary'}`}
     >
-      <div className="image-container h-full p-2 relative">
+      <div className="image-container">
         <img
           src={props.image}
           alt={props.title}
-          className="h-full w-auto rounded-lg relative"
+          className="h-full w-64 rounded-lg relative object-fill"
         />
         <div className="rating absolute bottom-2 right-2 bg-black bg-opacity-50 rounded-md p-1">
           <span className="text-yellow-400 ml-1">★</span>

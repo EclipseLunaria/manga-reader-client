@@ -24,6 +24,13 @@
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
   }
+
+  .manga-card {
+    @apply w-full h-80 rounded-md p-1 flex flex-row m-4;
+    .image-container {
+      @apply h-full w-auto p-2 relative;
+    }
+  }
 }
 
 @keyframes blurAnimation {
