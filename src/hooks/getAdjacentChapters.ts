@@ -1,4 +1,4 @@
-import { Chapter } from '../types';
+import { Chapter } from '../utils/types';
 
 const getAdjacentChapters = async (
   chapters: Chapter[] | null,

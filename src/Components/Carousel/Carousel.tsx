@@ -1,6 +1,6 @@
 import React from 'react';
 import { mangaCardTransformer } from './transformers';
-import { getMangaList } from '../../utils/hooks';
+import { getMangaList } from '../../hooks';
 import LinkingCarousel from './Subcomponents/LinkedCarousel';
 import { SearchCategory } from '../../utils/types';
 import { useNavigate } from 'react-router-dom';

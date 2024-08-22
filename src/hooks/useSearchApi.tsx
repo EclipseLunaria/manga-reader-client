@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios, { AxiosError, AxiosResponse } from 'axios';
 import path from 'path';
-import { API_BASE_URL } from '../api';
+import { API_BASE_URL } from '../utils/api';
 interface UseApiResponse<T> {
   data: T | null;
   loading: boolean;

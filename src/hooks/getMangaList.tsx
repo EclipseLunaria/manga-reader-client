@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { SeriesInfo } from '../types';
-import { API_BASE_URL } from '../api';
-import { SearchCategory } from '../types';
+import { SeriesInfo } from '../utils/types';
+import { API_BASE_URL } from '../utils/api';
+import { SearchCategory } from '../utils/types';
 
 const getMangaList = (type: SearchCategory) => {
   const [seriesInfoList, setSeriesInfo] = useState<SeriesInfo[] | null>(null);

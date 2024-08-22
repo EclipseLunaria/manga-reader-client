@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { fetchFieldHook, getAdjacentChapters } from '../../../utils/hooks';
+import { fetchFieldHook, getAdjacentChapters } from '../../../hooks';
 import { Chapter } from '../../../utils/types';
 import { useNavigate } from 'react-router-dom';
 import { ChapterNavButton } from './ViewHeader';

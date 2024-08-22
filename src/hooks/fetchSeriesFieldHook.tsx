@@ -1,18 +1,20 @@
+import path from 'path';
 import { useEffect, useState } from 'react';
-import { API_BASE_URL } from '../api';
+import { API_BASE_URL } from '../utils/api';
 
-const fetchChapterHook = (mangaId: string, chapterId: string) => {
-  const [chapter, setChapter] = useState<string[] | null>(null);
+const fetchFieldHook = <T,>(mangaId: string, fieldId: string) => {
+  const [field, setField] = useState<T | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const fetchChapter = async () => {
-      const ENDPOINT_URL = `${API_BASE_URL}/fetch/${mangaId}/${chapterId}`;
+      const ENDPOINT_URL = `${API_BASE_URL}/manga/${mangaId}/${fieldId}`;
+
       console.log(ENDPOINT_URL);
       try {
         const response = await fetch(ENDPOINT_URL);
         const data = await response.json();
-        setChapter(data);
+        setField(data);
       } catch (err: any) {
         console.error(err);
       } finally {
@@ -20,9 +22,9 @@ const fetchChapterHook = (mangaId: string, chapterId: string) => {
       }
     };
     fetchChapter();
-  }, [mangaId, chapterId]);
-
-  return { chapter, loading };
+  }, [mangaId, fieldId]);
+  console.log("field:", field)
+  return { field, loading };
 };
 
-export default fetchChapterHook;
+export default fetchFieldHook;

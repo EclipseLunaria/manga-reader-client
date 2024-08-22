@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import ViewerHeader from './ViewHeader';
 import ClickPageNav from './ClickPageNav';
-import { fetchFieldHook, fetchChapterHook } from '../../utils/hooks';
+import { fetchFieldHook, fetchChapterHook } from '../../hooks';
 
 const ChapterViewer = () => {
   const { titleId, chapterId } = useParams();

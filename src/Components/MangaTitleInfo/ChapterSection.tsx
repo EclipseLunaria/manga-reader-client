@@ -1,14 +1,14 @@
 import React from 'react';
 import { Chapter } from '../../utils/types';
 import { Link } from 'react-router-dom';
-import { fetchFieldHook } from '../../utils/hooks';
+import { fetchFieldHook } from '../../hooks';
 
 const ChapterSection = (props: { chapters: Chapter[]; mangaId: string }) => {
   const { field: chapterData } = fetchFieldHook<Chapter[]>(
     props.mangaId,
     'chapters',
   );
-  console.log(chapterData,":chapter data")
+  console.log(chapterData, ':chapter data');
   if (!chapterData) {
     return null;
   }
@@ -38,7 +38,7 @@ const ChapterCard = (props: {
   mangaId: string;
 }) => {
   const chapterId = props.chapter_id;
-  console.log(chapterId)
+  console.log(chapterId);
   if (!props.chapter) {
     return null;
   }

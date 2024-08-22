@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { SeriesInfo } from '../types';
-import { API_BASE_URL } from '../api';
+import { SeriesInfo } from '../utils/types';
+import { API_BASE_URL } from '../utils/api';
 
 const getSeriesInfoHook = (mangaId: string) => {
   const [seriesInfo, setSeriesInfo] = useState<SeriesInfo | null>(null);

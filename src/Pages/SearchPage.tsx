@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import { useSeriesSearchApi } from '../utils/hooks';
+import { useSeriesSearchApi } from '../hooks';
 import MangaCard from '../Components/MangaCard';
 import { SeriesInfo } from '../utils/types';
 
@@ -15,7 +15,9 @@ const SearchPage = () => {
       {loading && <p>Loading...</p>}
       {!loading &&
         data &&
-        data.map((manga, index) => <MangaCard {...manga} key={index} />)}
+        data.map((manga: SeriesInfo, index: number) => (
+          <MangaCard {...manga} key={index} />
+        ))}
     </div>
   );
 };

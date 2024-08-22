@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { getSeriesInfoHook } from '../utils/hooks';
+import { getSeriesInfoHook } from '../hooks';
 import { MangaTitleInfo } from '../Components/MangaTitleInfo';
 const TitlePage = () => {
   const { titleId } = useParams();
