@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 
-const FilterToggle = (props: { onToggle: (isOpen: boolean) => void }) => {
+const FilterToggle = (props: { setToggle: (isOpen: boolean) => void }) => {
   const [filtersOpen, setFilterOpen] = useState(false);
 
   const handleToggle = (isOpen: boolean) => {
-    props.onToggle(isOpen);
-    setFilterOpen(!filtersOpen);
+    props.setToggle(isOpen);
+    setFilterOpen(isOpen);
   };
   return (
     <div

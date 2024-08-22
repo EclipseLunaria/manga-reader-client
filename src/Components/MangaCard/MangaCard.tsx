@@ -2,7 +2,6 @@ import React from 'react';
 import { SeriesInfoBox } from './SeriesInfo';
 import { SeriesInfo } from '../../utils/types';
 
-// TODO: Fix styling for long titles to not stretch the card image
 const MangaCard = (props: SeriesInfo & { bgDisabled?: boolean }) => {
   console.log('manga card props', props);
   return (

@@ -1,12 +1,51 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { SeriesInfo } from '../../utils/types';
+import { SearchView } from './ViewButton';
+import ViewButtonGroup from './ViewButtonGroup';
+import ListViewResults from './ListViewResults';
+import { useSeriesSearchApi } from '../../hooks';
+import CoverView from './CoverView';
 
-const SearchResults = () => {
+const VIEWS = {
+  list: ViewButtonGroup,
+  cover: CoverView,
+};
+
+const SearchResults = (props: { searchQuery: string }) => {
+  const { searchQuery } = props;
+  const { data, error, loading } =
+    useSeriesSearchApi<SeriesInfo[]>(searchQuery);
+
   const [searchResults, setSearchResults] = useState<SeriesInfo[]>([]);
-  
+  const [selectedView, setSelectedView] = useState<SearchView>('list');
+  const renderView = (view: SearchView) => {
+    switch (view) {
+      case 'list':
+        return <ListViewResults results={searchResults} />;
+      case 'cover':
+        return <CoverView results={searchResults} />;
+      default:
+        return null;
+    }
+  };
+
+  useEffect(() => {
+    if (data) {
+      setSearchResults(data);
+    }
+  }, [data]);
+
   return (
     <div className="search-results-container">
-      <div className="search-results">Search Result</div>
+      <ViewButtonGroup
+        onClick={(type: SearchView) => {
+          console.log(type);
+          setSelectedView(type);
+        }}
+      />
+      {loading && <div>Loading...</div>}
+      {error && <div>Error: {error.message}</div>}
+      {data && renderView(selectedView)}
     </div>
   );
 };

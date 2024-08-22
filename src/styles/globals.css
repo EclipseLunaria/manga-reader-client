@@ -26,7 +26,7 @@
   }
 
   .manga-card {
-    @apply w-full h-80 rounded-md p-1 flex flex-row m-4;
+    @apply w-full h-80 rounded-md p-4 my-4 flex flex-row;
     .image-container {
       @apply h-full w-auto p-2 relative;
     }
