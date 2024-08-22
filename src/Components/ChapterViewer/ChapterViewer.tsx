@@ -34,7 +34,7 @@ const ChapterViewer = () => {
   };
 
   return (
-    <div className="chapter-viewer overflow-x-hidden">
+    <div className="chapter-viewer overflow-x-hidden h-full">
       <ViewerHeader
         title={titleField || ''}
         pgTotal={chapter?.length || 0}
@@ -46,9 +46,9 @@ const ChapterViewer = () => {
       />
       {loading && <div>Loading...</div>}
       {chapter && (
-        <div className="chapter-images flex flex-col w-full">
-          <div className="chapter-image-container flex flex-row justify-center m-2 w-full">
-            <img className="w-80%" src={chapter[page]} alt={`Page ${page}`} />
+        <div className="chapter-images flex flex-col w-full h-full">
+          <div className="chapter-image-container flex flex-row justify-center m-2 w-full h-full">
+            <img className="w-80% " src={chapter[page]} alt={`Page ${page}`} />
             <ClickPageNav onPageNav={onPageNav} />
           </div>
         </div>
