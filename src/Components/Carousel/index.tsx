@@ -1,3 +1,3 @@
-import popularMangaCarousel from './PopularMangaCarousel';
+import PopularMangaCarousel from './PopularMangaCarousel';
 
-export { popularMangaCarousel };
+export { PopularMangaCarousel };

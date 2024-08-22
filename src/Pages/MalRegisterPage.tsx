@@ -34,7 +34,11 @@ const MalRegisterPage = () => {
       provider_id: mal_id || '',
     };
     try {
-      await axios.post(AUTH_BASE_URL + '/signup/mal', malRegistrationData);
+      const response = await axios.post(
+        AUTH_BASE_URL + '/signup/mal',
+        malRegistrationData,
+      );
+      console.log(response.data);
     } catch (error) {
       console.error('Error registering with MyAnimeList:', error);
     }

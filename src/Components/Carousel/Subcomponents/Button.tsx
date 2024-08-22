@@ -1,15 +1,20 @@
 import React from 'react';
 
 const CarouselButton = (props: { direction: string; onClick?: () => void }) => {
-  const buttonStyle = props.direction === 'left' ? 'left-2' : 'right-1';
-
   return (
     <div
       onClick={props.onClick}
-      className={`carousel-button absolute top-1/3 bg-opacity-30 z-20 bg-black text-white
-                  p-4 cursor-pointer text-5xl ${buttonStyle} rounded-2xl`}
+      className={`carousel-button absolute w-16 z-20 h-16 bottom-0 
+                   ${
+                     props.direction === 'left'
+                       ? 'bg-gradient-to-tr from-black to-transparent left-0'
+                       : 'bg-gradient-to-tl from-black to-transparent right-0'
+                   }
+                   text-white cursor-pointer text-5xl rounded-xl py-auto`}
     >
-      {props.direction === 'left' ? '⮜' : '⮞'}
+      <div className="flex justify-center items-center h-full">
+        {props.direction === 'left' ? '⮜' : '⮞'}
+      </div>
     </div>
   );
 };

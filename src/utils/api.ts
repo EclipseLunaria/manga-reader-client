@@ -17,7 +17,7 @@ const API_BASE_URL =
 const AUTH_BASE_URL =
   !process.env.NODE_ENV || process.env.NODE_ENV === 'production'
     ? 'https://auth.eclipselunaria.dev'
-    : 'http://:5000';
+    : 'http://localhost:5000';
 // Export the API base URL for use in other modules
 
 const setAccessToken = (token: string) => {

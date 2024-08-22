@@ -6,7 +6,7 @@ import { SeriesInfo } from '../../utils/types';
 type CarouselTransformer<T> = (item: T, key?: number) => React.ReactNode;
 
 const mangaCardTransformer: CarouselTransformer<SeriesInfo> = (series) => (
-  <div className="px-4 justify-center flex m-4">
+  <div className="px-4 w-full justify-center flex">
     <MangaCard {...series} bgDisabled />
   </div>
 );

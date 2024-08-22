@@ -7,7 +7,7 @@ import 'slick-carousel/slick/slick-theme.css';
 const LinkingCarousel = (props: {
   autoplay?: boolean;
   children: ReactNode[];
-  setRef: (slider: Slider | null) => void;
+  setRef?: (slider: Slider | null) => void;
   sliderLink?: Slider;
   settingOverride?: Partial<SliderSettings>;
   styleOverride?: string;
@@ -28,7 +28,7 @@ const LinkingCarousel = (props: {
     <Slider
       className={props.styleOverride ?? ''}
       {...settings}
-      ref={(slider) => props.setRef(slider)}
+      ref={(slider) => props.setRef && props.setRef(slider)}
       asNavFor={props.sliderLink}
     >
       {props.children}
