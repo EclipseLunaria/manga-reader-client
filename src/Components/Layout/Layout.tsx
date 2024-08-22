@@ -25,9 +25,9 @@ const Layout: React.FC = () => {
   });
 
   return (
-    <div className="flex flex-row justify-start w-screen z-10">
+    <div className="flex flex-row justify-start w-screen h-full z-50">
       <Menu ref={menuRef} closeMenu={closeMenu} isOpen={isOpen} />
-      <div className="content-outer-container flex absolute w-full justify-center">
+      <div className="content-outer-container flex w-full justify-center">
         <div className="content-boxes flex flex-col w-[1400px] justify-center">
           <PageHeader isOpen={isOpen} onMenuToggled={handleMenuToggle} />
           <Outlet />

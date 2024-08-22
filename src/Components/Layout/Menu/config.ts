@@ -7,6 +7,7 @@ const MenuConfiguration: MenuSectionProps[] = [
       { text: 'Advanced Search', link: '/titles' },
       { text: 'Recently Added', link: '/titles/recent' },
       { text: 'Latest Update', link: '/titles/latest' },
+      { text: 'Popular Manga', link: '/titles/popular' },
       { text: 'Random', link: '/title/random' },
     ],
   },

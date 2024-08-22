@@ -31,6 +31,10 @@ export const router = createBrowserRouter([
         element: <ConstructionPage />,
       },
       {
+        path: 'titles/popular',
+        element: <ConstructionPage />,
+      },
+      {
         path: 'title/random',
         element: <ConstructionPage />,
       },

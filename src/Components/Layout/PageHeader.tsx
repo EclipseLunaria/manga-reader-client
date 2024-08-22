@@ -7,9 +7,13 @@ const PageHeader = (props: {
   onMenuToggled: (menuOpen: boolean) => void;
   isOpen: boolean;
 }) => {
+  const navigate = useNavigate();
   return (
     <div className="navbarmain flex flex-row w-1200px">
-      <div className="font-anime flex flex-col justify-center">
+      <div
+        className="font-anime flex flex-col justify-center cursor-pointer"
+        onClick={() => navigate('/')}
+      >
         MANGA DOKUSHA
       </div>
       <div className={`dropdown-menu-icon`}>

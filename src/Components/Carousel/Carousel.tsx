@@ -3,13 +3,15 @@ import { mangaCardTransformer } from './transformers';
 import { getMangaList } from '../../utils/hooks';
 import LinkingCarousel from './Subcomponents/LinkedCarousel';
 import { SearchCategory } from '../../utils/types';
+import { useNavigate } from 'react-router-dom';
 
 const Courasel = (props: {
   carouselType: SearchCategory;
   titleText: string;
+  navDestination?: string;
 }) => {
   const { seriesInfoList } = getMangaList(props.carouselType);
-
+  const navigate = useNavigate();
   if (!seriesInfoList) return null;
 
   return (
@@ -19,9 +21,16 @@ const Courasel = (props: {
           className="section-title absolute top-42 flex justify-end z-20 ml-auto w-full rounded-xl text-nowrap text-4xl"
           style={{ textShadow: 'green 2px 1px 5px' }}
         >
-          <div className="relative p-4 bg-primary pr-0">
-            <div className="absolute top-0 left-0 w-full h-full border-b-2 border-l-2 rounded-bl-2xl" />
-            {props.titleText}
+          <div
+            className="overflow-hidden pb-4 pl-4"
+            onClick={() => {
+              props.navDestination && navigate(props.navDestination);
+            }}
+          >
+            <div className="relative p-4 bg-primary pr-0">
+              <div className="absolute  top-0 left-0 w-full h-full border-b-2 border-l-2 rounded-bl-2xl cursor-pointer transition-shadow hover:shadow-md hover:shadow-green-700 " />
+              {props.titleText}
+            </div>
           </div>
         </div>
 

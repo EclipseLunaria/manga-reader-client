@@ -2,7 +2,7 @@ import React from 'react';
 import ConstructionImage from '../assets/construction.png';
 const ConstructionPage: React.FC = () => {
   return (
-    <div>
+    <div className="relative">
       <img
         src={ConstructionImage}
         alt="Under Construction"
