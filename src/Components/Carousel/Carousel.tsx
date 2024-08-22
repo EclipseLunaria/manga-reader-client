@@ -13,7 +13,7 @@ const Courasel = (props: {
   if (!seriesInfoList) return null;
 
   return (
-    <div className="w-full h-[400px]">
+    <div className="w-full h-[400px] relative mb-24">
       <div className="w-full h-[400px] rounded-xl border-t-transparent relative">
         <div
           className="section-title absolute top-42 flex justify-end z-20 ml-auto w-full rounded-xl text-nowrap text-4xl"

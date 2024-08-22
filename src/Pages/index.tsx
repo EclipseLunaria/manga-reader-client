@@ -4,4 +4,11 @@ import HomePage from './HomePage';
 import PageNotFound from './PageNotFound';
 import TitlePage from './TitlePage';
 import AdvancedSearchPage from './AdvancedSearchPage';
-export { SearchPage, ConstructionPage, HomePage, PageNotFound, TitlePage, AdvancedSearchPage };
+export {
+  SearchPage,
+  ConstructionPage,
+  HomePage,
+  PageNotFound,
+  TitlePage,
+  AdvancedSearchPage,
+};
