@@ -15,6 +15,7 @@ const UserMenu = (props: { closeMenu: () => void }) => {
         setActiveModal={setActiveModal}
         onModalClose={onModalClose}
       />
+      {activeModal}
     </div>
   );
 };
