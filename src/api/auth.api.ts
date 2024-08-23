@@ -30,7 +30,7 @@ const authApi = axios.create({
 
 // add interceptor
 authApi.interceptors.request.use(
-  async (config) => {
+  (config) => {
     const token = localStorage.getItem('access_token');
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
@@ -39,8 +39,7 @@ authApi.interceptors.request.use(
   },
   (error) => {
     return Promise.reject(error);
-    }
-
+  },
 );
 
 export { AUTH_BASE_URL, authApi, refreshToken };

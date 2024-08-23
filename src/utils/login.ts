@@ -1,18 +1,19 @@
-import axios from 'axios';
-import { API_BASE_URL, AUTH_BASE_URL } from './api';
+import { authApi } from '../api/auth.api';
+import IBearerBody from '../interfaces/bearer.interface';
 
 const login = async (username: string, password: string) => {
-  const response = await fetch(`${AUTH_BASE_URL}/auth/login`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ username, password }),
-  });
-  const data = await response.json();
-  console.log(data);
+  const response = await authApi.post(
+    `/auth/login`,
+    JSON.stringify({ username, password }),
+  );
 
-  return data;
+  const data: IBearerBody = JSON.parse(response.data);
+  localStorage.setItem('access_token', data.access_token);
+  localStorage.setItem('refresh_token', data.refresh_token);
+  localStorage.setItem('user', JSON.stringify(data.user));
+  console.log(data);
+  authApi.defaults.headers['Authorization'] = `Bearer ${data.access_token}`;
+  return JSON.parse(response.data);
 };
 
 export default login;
