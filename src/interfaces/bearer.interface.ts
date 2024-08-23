@@ -3,10 +3,10 @@ interface IBearerBody {
   token_expires_in: number;
   refresh_token: string;
   token_type: string;
-  user: UserInfo;
+  user: IUserInfo;
 }
 
-interface UserInfo {
+export interface IUserInfo {
   id: string;
   username: string;
   email: string;
