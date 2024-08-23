@@ -6,7 +6,7 @@ import LoggedOutMenu from './LoggedOutMenu';
 const UserMenu = (props: { closeMenu: () => void }) => {
   const [activeModal, setActiveModal] = useState<null | ReactNode>(null);
   const userInfo: IUserInfo =
-    JSON.parse(localStorage.getItem('user') || '') || null;
+    JSON.parse(localStorage.getItem('user') || '') ?? null;
 
   const onModalClose = () => {
     setActiveModal(null);
