@@ -1,18 +1,19 @@
 import React from 'react';
 import { mangaCardTransformer } from './transformers';
-import { getMangaList } from '../../hooks';
 import LinkingCarousel from './Subcomponents/LinkedCarousel';
 import { SearchCategory } from '../../utils/types';
 import { useNavigate } from 'react-router-dom';
+import { getSeriesList } from '../../api/search.api';
 
 const Courasel = (props: {
   carouselType: SearchCategory;
   titleText: string;
   navDestination?: string;
 }) => {
-  const { seriesInfoList } = getMangaList(props.carouselType);
+  const { seriesResults } = getSeriesList(props.carouselType, 10, 0);
   const navigate = useNavigate();
-  if (!seriesInfoList) return null;
+  if (!seriesResults) return null;
+  console.log(seriesResults);
 
   return (
     <div className="w-full h-[400px] relative mb-24">
@@ -35,7 +36,9 @@ const Courasel = (props: {
         </div>
 
         <LinkingCarousel
-          children={seriesInfoList.slice(0, 10).map(mangaCardTransformer)}
+          children={seriesResults.slice().map((s, i) => {
+            return mangaCardTransformer(s, i);
+          })}
           setRef={(slider) => {}}
           autoplay
           settingOverride={{
@@ -49,8 +52,8 @@ const Courasel = (props: {
               <div className="w-12 h-12 border-2 rounded-full overflow-hidden border-green-600 hover:shadow-green-500 hover:shadow-md hover:border-green-900 hover:rounded-full transition-all duration-300 ease-in-out">
                 <img
                   className="w-full h-full object-cover "
-                  src={seriesInfoList[i].image}
-                  alt={seriesInfoList[i].title}
+                  src={seriesResults[i].image}
+                  alt={seriesResults[i].title}
                 />
               </div>
             ),

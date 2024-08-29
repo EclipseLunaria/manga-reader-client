@@ -22,21 +22,23 @@ const getSeriesList = (
   const [loading, setLoading] = useState(true);
   offset = offset ? offset : 0;
   useEffect(() => {
-    fetchSeries;
-  });
+    fetchSeries();
+  }, [type]);
 
   const fetchSeries = async () => {
     try {
       const response = await searchApi.get(
         `/${type}?limit=${limit ? limit : 25}&offset=${offset ? offset : 0}`,
       );
-      setSeriesResults((await response.data) as SeriesInfo[]);
+      setSeriesResults((await response.data).results as SeriesInfo[]);
     } catch (error) {
       console.error(error);
+      setSeriesResults([]);
     } finally {
       setLoading(false);
     }
   };
+  return { seriesResults, loading };
 };
 
 const getPopularSeries = (limit: number, offset: number) =>
@@ -48,4 +50,4 @@ const getNewestSeries = (limit: number, offset: number) =>
 const getLatestSeries = (limit: number, offset: number) =>
   getSeriesList('latest', limit, offset);
 
-export {getPopularSeries, getNewestSeries, getLatestSeries}
+export { getSeriesList, getPopularSeries, getNewestSeries, getLatestSeries };
