@@ -1,5 +1,5 @@
 import React from 'react';
-import { SeriesInfo } from '../../utils/types';
+import { SeriesInfo } from '../utils/types';
 
 export const SeriesInfoBox = (props: { seriesInfo: SeriesInfo }) => {
   return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import MangaCard from '../mangaCard';
+import MangaCard from '../seriesDisplays';
 import CarouselCard from './subcomponents/card';
 import { SeriesInfo } from '../../utils/types';
 

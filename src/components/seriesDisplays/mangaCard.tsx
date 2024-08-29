@@ -1,5 +1,5 @@
 import React from 'react';
-import { SeriesInfoBox } from './seriesInfo';
+import { SeriesInfoBox } from '../../models/seriesInfo';
 import { SeriesInfo } from '../../utils/types';
 
 const MangaCard = (props: SeriesInfo & { bgDisabled?: boolean }) => {

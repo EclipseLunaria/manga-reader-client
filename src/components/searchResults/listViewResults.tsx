@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { SeriesInfo } from '../../utils/types';
-import MangaCard from '../mangaCard';
+import MangaCard from '../seriesDisplays';
 
 const ListViewResults = (props: { results?: SeriesInfo[] }) => {
   console.log(props.results);
