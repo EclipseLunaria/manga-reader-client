@@ -16,7 +16,7 @@ const getMangaList = (type: SearchCategory) => {
   console.log(API_BASE_URL);
   useEffect(() => {
     const fetchSeriesInfo = async () => {
-      const ENDPOINT_URL = `${API_BASE_URL}/manga/${categoryPath[type]}`;
+      const ENDPOINT_URL = `${API_BASE_URL}/manga/${type}`;
       try {
         const response = await fetch(ENDPOINT_URL);
         const data = await response.json();

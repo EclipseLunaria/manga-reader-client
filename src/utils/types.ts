@@ -21,7 +21,7 @@ interface SeriesInfo {
   chapters: Chapter[];
 }
 
-type SearchCategory = 'last_updated' | 'popular' | 'newest';
+type SearchCategory = 'latest' | 'popular' | 'newest';
 
 type OAuthProvider = 'mal' | 'google' | 'facebook';
 
