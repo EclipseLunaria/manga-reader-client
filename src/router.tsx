@@ -1,13 +1,13 @@
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
-import Layout from './Components/Layout';
-import { AdvancedSearchPage, SearchPage } from './Pages';
-import TitlePage from './Pages/TitlePage';
-import ChapterViewer from './Components/ChapterViewer';
-import ConstructionPage from './Pages/ConstructionPage';
-import PageNotFound from './Pages/PageNotFound';
-import HomePage from './Pages/HomePage';
-import MalRegisterPage from './Pages/MalRegisterPage';
+import Layout from './components/layout';
+import { AdvancedSearchPage, SearchPage } from './pages';
+import TitlePage from './pages/titlePage';
+import ChapterViewer from './components/chapterViewer';
+import ConstructionPage from './pages/constructionPage';
+import PageNotFound from './pages/pageNotFound';
+import HomePage from './pages/homePage';
+import MalRegisterPage from './pages/malRegisterPage';
 
 export const router = createBrowserRouter([
   {
