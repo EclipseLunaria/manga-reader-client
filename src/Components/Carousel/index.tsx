@@ -10,7 +10,7 @@ const PopularMangaCarousel = () => (
 // 'last_updated' | 'popular' | 'newest'
 const LatestUpdatesCarousel = () => (
   <Carousel
-    carouselType="last_updated"
+    carouselType="latest"
     titleText="Latest Updates"
     navDestination="/titles/latest"
   />
