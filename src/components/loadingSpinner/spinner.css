@@ -1,0 +1,47 @@
+.spinner-tail-1 {
+  animation: tailspin1 1s infinite;
+}
+
+.spinner-tail-2 {
+  animation: tailspin2 1s infinite;
+}
+.spinner-tail-3 {
+  animation: tailspin3 1s infinite;
+}
+
+@keyframes tailspin1 {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(90deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes tailspin2 {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes tailspin3 {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

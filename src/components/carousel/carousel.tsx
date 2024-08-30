@@ -1,19 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { mangaCardTransformer } from './transformers';
 import LinkingCarousel from './subcomponents/linkedCarousel';
-import { SearchCategory } from '../../utils/types';
+import { SearchCategory, SeriesInfo } from '../../utils/types';
 import { useNavigate } from 'react-router-dom';
-import { getSeriesList } from '../../api/search.api';
+import { getPopularSeries, getSeriesList } from '../../api/search.api';
+import LoadingSpinner from '../loadingSpinner/loadingSpinner';
 
 const Courasel = (props: {
   carouselType: SearchCategory;
   titleText: string;
   navDestination?: string;
 }) => {
-  const { seriesResults } = getSeriesList(props.carouselType, 10, 0);
+  const { seriesResults, loading } = getSeriesList(props.carouselType, 10, 0);
   const navigate = useNavigate();
-  if (!seriesResults) return null;
-  console.log(seriesResults);
+
+  if (loading) {
+    console.log('loading:', loading);
+    return (
+      <div className="h-64 w-64 p-24">
+        <LoadingSpinner />
+      </div>
+    );
+  }
+  if (!loading) {
+    console.log('not loading');
+  }
 
   return (
     <div className="w-full h-[400px] relative mb-24">
@@ -36,9 +47,13 @@ const Courasel = (props: {
         </div>
 
         <LinkingCarousel
-          children={seriesResults.slice().map((s, i) => {
-            return mangaCardTransformer(s, i);
-          })}
+          children={
+            seriesResults
+              ? seriesResults.slice().map((s, i) => {
+                  return mangaCardTransformer(s, i);
+                })
+              : []
+          }
           setRef={(slider) => {}}
           autoplay
           settingOverride={{
@@ -52,8 +67,8 @@ const Courasel = (props: {
               <div className="w-12 h-12 border-2 rounded-full overflow-hidden border-green-600 hover:shadow-green-500 hover:shadow-md hover:border-green-900 hover:rounded-full transition-all duration-300 ease-in-out">
                 <img
                   className="w-full h-full object-cover "
-                  src={seriesResults[i].image}
-                  alt={seriesResults[i].title}
+                  src={seriesResults ? seriesResults[i].image : ''}
+                  alt={seriesResults ? seriesResults[i].title : ''}
                 />
               </div>
             ),
