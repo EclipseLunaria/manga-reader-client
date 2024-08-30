@@ -24,4 +24,5 @@ const LatestReleasesCarousel = () => (
   />
 );
 
+export default Carousel;
 export { PopularMangaCarousel, LatestReleasesCarousel, LatestUpdatesCarousel };
