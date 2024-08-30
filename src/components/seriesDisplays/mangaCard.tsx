@@ -3,7 +3,6 @@ import { SeriesInfoBox } from '../../models/seriesInfo';
 import { SeriesInfo } from '../../utils/types';
 
 const MangaCard = (props: SeriesInfo & { bgDisabled?: boolean }) => {
-  console.log('manga card props', props);
   return (
     <a
       href={`/title/${props.manga_id}`}

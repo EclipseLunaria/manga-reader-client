@@ -4,18 +4,20 @@ import {
   LatestUpdatesCarousel,
   PopularMangaCarousel,
 } from '../components/carousel';
+import LoadingSpinner from '../components/loadingSpinner/loadingSpinner';
 
 const HomePage = () => {
   return (
     <div className="home-page-container w-full h-full p-2">
       <div className="home-page-header">
-        <h1>Home Page</h1>
+        <div className="h-24 w-24">
+          <LoadingSpinner />
+        </div>
       </div>
       <div className="home-page-body">
         <PopularMangaCarousel />
         <LatestUpdatesCarousel />
         <LatestReleasesCarousel />
-        {/* <PopularMangaCarousel /> */}
       </div>
     </div>
   );
