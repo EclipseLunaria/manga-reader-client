@@ -31,11 +31,22 @@ const ChapterSelector = (props: {
     fetchAdjacentChapters();
   }, [chapterData, props.chapterId]);
 
-  const options = chapterData?.map((chapter, index) => (
-    <option key={index} value={chapter.chapter_id}>
-      {chapter.title}
-    </option>
-  ));
+  const options = chapterData
+    ?.sort((a, b) => {
+      if (!a || !b) return 0;
+      const aNum = parseInt(
+        a.link.split('/').pop()!.split('.')[0].split('-').pop()!,
+      );
+      const bNum = parseInt(
+        b.link.split('/').pop()!.split('.')[0].split('-').pop()!,
+      );
+      return aNum - bNum;
+    })
+    .map((chapter, index) => (
+      <option key={index} value={chapter.chapter_id}>
+        {chapter.title}
+      </option>
+    ));
 
   return (
     <div className="chapter-selector w-full bg-transparent p-2">

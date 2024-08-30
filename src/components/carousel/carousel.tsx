@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { mangaCardTransformer } from './transformers';
 import LinkingCarousel from './subcomponents/linkedCarousel';
-import { SearchCategory, SeriesInfo } from '../../utils/types';
+import { SearchCategory } from '../../utils/types';
 import { useNavigate } from 'react-router-dom';
-import { getPopularSeries, getSeriesList } from '../../api/search.api';
+import { getSeriesList } from '../../api/search.api';
 import LoadingSpinner from '../loadingSpinner/loadingSpinner';
 
 const Courasel = (props: {
