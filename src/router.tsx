@@ -8,7 +8,7 @@ import ConstructionPage from './pages/constructionPage';
 import PageNotFound from './pages/pageNotFound';
 import HomePage from './pages/homePage';
 import MalRegisterPage from './pages/malRegisterPage';
-import PopularSeriesPage from './pages/popularSeriesPage';
+import MangaListPage from './pages/mangaListPage';
 
 export const router = createBrowserRouter([
   {
@@ -25,15 +25,15 @@ export const router = createBrowserRouter([
       },
       {
         path: 'titles/recent',
-        element: <ConstructionPage />,
+        element: <MangaListPage type="newest" />,
       },
       {
         path: 'titles/latest',
-        element: <ConstructionPage />,
+        element: <MangaListPage type="latest" />,
       },
       {
         path: 'titles/popular',
-        element: <PopularSeriesPage />,
+        element: <MangaListPage type="popular" />,
       },
       {
         path: 'title/random',

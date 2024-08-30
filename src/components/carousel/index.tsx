@@ -1,5 +1,6 @@
 import React from 'react';
 import Carousel from './carousel';
+
 const PopularMangaCarousel = () => (
   <Carousel
     carouselType="popular"
@@ -25,3 +26,4 @@ const LatestReleasesCarousel = () => (
 );
 
 export { PopularMangaCarousel, LatestReleasesCarousel, LatestUpdatesCarousel };
+export default Carousel;
