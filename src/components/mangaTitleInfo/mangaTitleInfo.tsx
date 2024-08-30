@@ -5,7 +5,7 @@ import MangaHeaderImage from './mangaHeaderImage';
 import MangaHeaderBox from './mangaHeaderBox';
 import MangaDescriptionBox from './mangaDescriptionBox';
 import MetaSectionBox from './metaSectionBox';
-import ChapterSection from './ChapterSection';
+import ChapterSection from './chapterSection';
 import { useParams } from 'react-router-dom';
 const MangaTitleInfo = (props: SeriesInfo) => {
   const { titleId } = useParams();
