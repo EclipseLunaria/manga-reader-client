@@ -15,7 +15,7 @@ const useSeriesSearchApi = <T,>(searchTerm: string): UseApiResponse<T> => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const ENDPOINT_URL = `${API_BASE_URL}/manga/search?q=${searchTerm}`;
+      const ENDPOINT_URL = `${API_BASE_URL}/search?q=${searchTerm}`;
       console.log('fetching data from', ENDPOINT_URL);
       try {
         const response: AxiosResponse<T> = await axios.get<T>(ENDPOINT_URL);

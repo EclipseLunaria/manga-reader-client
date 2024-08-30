@@ -8,6 +8,7 @@ import ConstructionPage from './pages/constructionPage';
 import PageNotFound from './pages/pageNotFound';
 import HomePage from './pages/homePage';
 import MalRegisterPage from './pages/malRegisterPage';
+import PopularSeriesPage from './pages/popularSeriesPage';
 
 export const router = createBrowserRouter([
   {
@@ -32,7 +33,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'titles/popular',
-        element: <ConstructionPage />,
+        element: <PopularSeriesPage />,
       },
       {
         path: 'title/random',
