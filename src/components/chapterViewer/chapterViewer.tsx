@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import ViewerHeader from './ViewHeader';
+import ViewerHeader from './viewHeader';
 import ClickPageNav from './clickPageNav';
 import { fetchFieldHook, fetchChapterHook } from '../../hooks';
 
