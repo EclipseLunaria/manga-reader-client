@@ -1,10 +1,10 @@
 import React from 'react';
 import { SeriesInfo } from '../../utils/types';
-import TitleCoverBackground from './TitleCoverBackground';
-import MangaHeaderImage from './MangaHeaderImage';
-import MangaHeaderBox from './MangaHeaderBox';
-import MangaDescriptionBox from './MangaDescriptionBox';
-import MetaSectionBox from './MetaSectionBox';
+import TitleCoverBackground from './titleCoverBackground';
+import MangaHeaderImage from './mangaHeaderImage';
+import MangaHeaderBox from './mangaHeaderBox';
+import MangaDescriptionBox from './mangaDescriptionBox';
+import MetaSectionBox from './metaSectionBox';
 import ChapterSection from './ChapterSection';
 import { useParams } from 'react-router-dom';
 const MangaTitleInfo = (props: SeriesInfo) => {

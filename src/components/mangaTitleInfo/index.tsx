@@ -1,3 +1,3 @@
-import MangaTitleInfo from './MangaTitleInfo';
+import MangaTitleInfo from './mangaTitleInfo';
 
 export { MangaTitleInfo };
