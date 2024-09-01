@@ -1,5 +1,5 @@
 import React from 'react';
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, redirect } from 'react-router-dom';
 import Layout from './components/layout';
 import { AdvancedSearchPage, SearchPage } from './pages';
 import TitlePage from './pages/titlePage';
@@ -9,6 +9,7 @@ import PageNotFound from './pages/pageNotFound';
 import HomePage from './pages/homePage';
 import MalRegisterPage from './pages/malRegisterPage';
 import MangaListPage from './pages/mangaListPage';
+import { API_BASE_URL } from './api';
 
 export const router = createBrowserRouter([
   {
@@ -37,7 +38,8 @@ export const router = createBrowserRouter([
       },
       {
         path: 'title/random',
-        element: <ConstructionPage />,
+        element: <></>,
+        loader: async () => redirect(`${API_BASE_URL}/manga/random`),
       },
       {
         path: 'search',
