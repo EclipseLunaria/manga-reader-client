@@ -20,5 +20,5 @@
 	npm run build
 
 	#Deploy to /var/www/manga-reader/client
-	rm -rf /var/www/manga_reader/client/*
-	cp -r dist/* /var/www/manga_reader/client/
+	rm -rf /var/www/mangaflux/*
+	cp -r dist/* /var/www/mangaflux/
