@@ -4,7 +4,6 @@ import FacebookButton from '../assets/oauth/facebook-button.png';
 import GoogleButton from '../assets/oauth/google-button.png';
 import { AUTH_BASE_URL } from './api';
 
-const MAL_CLIENT_ID = '63b748431010db6dfc650721156b682d';
 
 const getOAuthUrl = (provider: OAuthProvider) => {
   switch (provider) {

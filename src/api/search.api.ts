@@ -3,7 +3,7 @@ import axios from 'axios';
 import { SearchCategory, SeriesInfo } from '../utils/types';
 const API_BASE_URL =
   !process.env.NODE_ENV || process.env.NODE_ENV === 'production'
-    ? 'https://mangaflux.net/api'
+    ? 'https://api.mangaflux.net'
     : 'http://localhost:6900';
 
 const searchApi = axios.create({
