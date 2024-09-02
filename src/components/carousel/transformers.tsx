@@ -5,11 +5,16 @@ import { SeriesInfo } from '../../utils/types';
 
 type CarouselTransformer<T> = (item: T, key?: number) => React.ReactNode;
 
-const mangaCardTransformer: CarouselTransformer<SeriesInfo> = (series) => (
-  <div className="px-4 w-full justify-center flex">
-    <MangaCard {...series} bgDisabled />
-  </div>
-);
+const mangaCardTransformer: CarouselTransformer<SeriesInfo> = (series) => {
+  if (!series) {
+    return null;
+  }
+  return (
+    <div className="px-4 w-full justify-center flex">
+      <MangaCard {...series} bgDisabled />
+    </div>
+  );
+};
 
 const carouselCardTransformer: CarouselTransformer<SeriesInfo> = (series) => (
   <CarouselCard series={series} />

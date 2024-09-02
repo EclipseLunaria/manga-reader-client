@@ -67,8 +67,16 @@ const Courasel = (props: {
               <div className="w-12 h-12 border-2 rounded-full overflow-hidden border-green-600 hover:shadow-green-500 hover:shadow-md hover:border-green-900 hover:rounded-full transition-all duration-300 ease-in-out">
                 <img
                   className="w-full h-full object-cover "
-                  src={seriesResults ? seriesResults[i].image : ''}
-                  alt={seriesResults ? seriesResults[i].title : ''}
+                  src={
+                    seriesResults && seriesResults[i]
+                      ? seriesResults[i].image
+                      : ''
+                  }
+                  alt={
+                    seriesResults && seriesResults[i]
+                      ? seriesResults[i].title
+                      : ''
+                  }
                 />
               </div>
             ),
