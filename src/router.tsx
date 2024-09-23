@@ -10,6 +10,7 @@ import HomePage from './pages/homePage';
 import MalRegisterPage from './pages/malRegisterPage';
 import MangaListPage from './pages/mangaListPage';
 import { API_BASE_URL } from './api';
+import ReaderLayout from './components/readerLayout/readerLayout';
 
 export const router = createBrowserRouter([
   {
@@ -79,6 +80,10 @@ export const router = createBrowserRouter([
         element: <ConstructionPage />,
       },
     ],
+  },
+  {
+    path: '/read/:titleId/:chapterId',
+    element: <ReaderLayout />,
   },
   {
     path: '/register/mal',

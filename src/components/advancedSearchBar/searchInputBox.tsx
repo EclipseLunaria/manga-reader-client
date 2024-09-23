@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 
-const SearchInputBox = (props: { handleSearch: (query: string) => void }) => {
+const SearchInputBox = (props: {
+  handleSearch: (query: string) => void;
+  liveSearch?: boolean;
+  className?: string;
+}) => {
   const [searchBarFocus, setSearchBarFocus] = useState(false);
   const [searchString, setSearchString] = useState('');
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -13,7 +17,7 @@ const SearchInputBox = (props: { handleSearch: (query: string) => void }) => {
            searchBarFocus
              ? 'border-green-600 shadow-green-900 shadow '
              : 'border-transparent'
-         }`}
+         } ${props.className}`}
     >
       <i className="fa-solid fa-magnifying-glass my-auto p-2"></i>
       <input
@@ -21,7 +25,10 @@ const SearchInputBox = (props: { handleSearch: (query: string) => void }) => {
         className="bg-transparent w-full mx-2 focus:outline-none text-green-700"
         onFocus={() => setSearchBarFocus(true)}
         onBlur={() => setSearchBarFocus(false)}
-        onChange={(e) => setSearchString(e.target.value)}
+        onChange={(e) => {
+          setSearchString(e.target.value);
+          props.liveSearch && props.handleSearch(e.target.value);
+        }}
         onKeyDown={handleKeyDown}
       />
     </div>
